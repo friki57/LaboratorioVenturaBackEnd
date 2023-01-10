@@ -1,4 +1,13 @@
-var ret = () => {
+import express from "express";
+import reqUsuario from "./reqUsuario.js";
+export default () => {
+    const rutas = express.Router();
+    reqUsuario(rutas);
+    return rutas;
+}
+
+
+/* var ret = () => {
     const express = require('express');
     const rutas = express.Router();
     const path = require('path');
@@ -15,3 +24,4 @@ var ret = () => {
 }
 
 module.exports = ret;
+ */

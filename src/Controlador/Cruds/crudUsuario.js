@@ -1,11 +1,11 @@
-const mongoose = require("mongoose")
-const Producto = require("../../Modelo/Producto")
+import mongoose from "mongoose";
+import Usuario from "../../Modelo/Usuario.js";
 
 function crud()
 {
     this.buscarTodo = (callback)=>
     {
-        Producto.find((err, product)=>
+        Usuario.find((err, product)=>
         {
             if(!err) callback(product)
             else console.log(err)
@@ -13,12 +13,13 @@ function crud()
     }
     this.guardar = (product, callback)=>
     {
-        var producto = new Producto(product)
-        producto.save(product,()=>
+        var objeto = new Usuario(product)
+        objeto.save(product,(err)=>
             {
+                err && console.log(err)
                 callback();
             })
     }
 }
 
-module.exports = new crud();
+export default new crud();

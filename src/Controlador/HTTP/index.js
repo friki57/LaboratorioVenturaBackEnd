@@ -1,8 +1,10 @@
 import express from "express";
 import reqUsuario from "./reqUsuario.js";
+import reqPaciente from "./reqPaciente.js";
 export default () => {
     const rutas = express.Router();
     reqUsuario(rutas);
+    reqPaciente(rutas);
     return rutas;
 }
 

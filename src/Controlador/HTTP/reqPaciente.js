@@ -15,7 +15,7 @@ export default (rutas) => {
         crudPaciente.buscarTodo((pacientes)=>
         {
             pacientes = pacientes.filter(a=>{
-                a = a.toObject();
+                a = a._doc;
                 //if(a.Nombres) a.NombreCompleto = a.Nombres.concat(" ", a.PrimerApellido, " ", a.SegundoApellido)
                 delete a.Genero
                 delete a.Telefono

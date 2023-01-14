@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const UsuarioSchema = new Schema(
+const PacienteSchema = new Schema(
     {
         CI: String,
         Nombres: String,
@@ -18,4 +18,4 @@ const UsuarioSchema = new Schema(
     }
 )
 
-export default mongoose.model("paciente", UsuarioSchema);
+export default mongoose.model("paciente", PacienteSchema);

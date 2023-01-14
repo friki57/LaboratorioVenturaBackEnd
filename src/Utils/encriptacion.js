@@ -1,9 +1,9 @@
 //Código pendiente
 export async function encriptarContra(contra) {
-    return contra + "enc";
+    return contra;
 }
 export async function desencriptarContra(contra) {
-    return contra + "desenc";
+    return contra;
 }
 
 //module.exports = {encriptarContra, desencriptarContra}

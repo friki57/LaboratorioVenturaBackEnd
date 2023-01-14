@@ -11,6 +11,14 @@ function crud()
             else console.log(err)
         });
     }
+    this.buscarNombres = (callback)=>
+    {
+        Paciente.find((err, product)=>
+        {
+            if(!err) callback(product)
+            else console.log(err)
+        });
+    }
     this.guardar = (product, callback)=>
     {
         var objeto = new Paciente(product)

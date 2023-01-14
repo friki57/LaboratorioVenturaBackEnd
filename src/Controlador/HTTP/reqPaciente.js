@@ -10,6 +10,24 @@ export default (rutas) => {
             console.log("******************** Fin Leer Todo Paciente ********************");
         })
     });
+    rutas.get("/paciente/leerNombres", async (req, res) => {
+        console.log("******************** Leer Nombres Paciente ********************\n");
+        crudPaciente.buscarTodo((pacientes)=>
+        {
+            pacientes = pacientes.map(a=>{
+                delete a.Genero
+                delete a.Telefono
+                delete a.Direccion
+                delete a.RazonSocial
+                delete a.NIT
+                delete a.email
+                delete a.Password
+                return a;
+            })
+            res.json(pacientes)
+            console.log("******************** Fin Leer Nombres Paciente ********************");
+        })
+    });
     rutas.post("/paciente/agregar", async (req, res) => {
         console.log("******************** Agregar Paciente ********************\nLlega:\n", req.body);
         req.body.Password = await encriptarContra(req.body.Password);

@@ -16,7 +16,7 @@ export default (rutas) => {
         {
             pacientes = pacientes.filter(a=>{
                 a = a.toObject();
-                a.NombreCompleto = a.Nombres.concat(" ", a.PrimerApellido, " ", a.SegundoApellido)
+                if(a.Nombres) a.NombreCompleto = a.Nombres.concat(" ", a.PrimerApellido, " ", a.SegundoApellido)
                 delete a.Genero
                 delete a.Telefono
                 delete a.Direccion

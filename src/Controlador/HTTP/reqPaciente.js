@@ -15,6 +15,7 @@ export default (rutas) => {
         crudPaciente.buscarTodo((pacientes)=>
         {
             pacientes = pacientes.map(a=>{
+                console.log(a)
                 delete a.Genero
                 delete a.Telefono
                 delete a.Direccion

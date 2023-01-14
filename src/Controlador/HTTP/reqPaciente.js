@@ -14,17 +14,17 @@ export default (rutas) => {
         console.log("******************** Leer Nombres Paciente ********************\n");
         crudPaciente.buscarTodo((pacientes)=>
         {
-            pacientes = pacientes.map(a=>{
+            pacientes = pacientes.filter(a=>{
                 a = a.toObject();
+                a.NombreCompleto = a.Nombres.concat(" ", a.PrimerApellido, " ", a.SegundoApellido)
                 delete a.Genero
                 delete a.Telefono
                 delete a.Direccion
                 delete a.RazonSocial
                 delete a.NIT
-                delete a.email
+                delete a.Email
                 delete a.Password
-                console.log(a)
-                return a;
+                if(a.CI) return a;
             })
             res.json(pacientes)
             console.log("******************** Fin Leer Nombres Paciente ********************");

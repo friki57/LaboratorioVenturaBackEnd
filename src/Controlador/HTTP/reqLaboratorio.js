@@ -10,8 +10,22 @@ export default (rutas) => {
     });
     rutas.post("/laboratorio/agregar", async (req, res) => {
         console.log("******************** Agregar Laboratorio ********************\nLlega:\n", req.body);
-        res.json({ mensaje: req.body })
-
+        let ExamenesRealizados = req.body.examenes.map(a=>
+            {
+                let ex = {
+                    IdExamen: a._id,
+                    Estado: "Pendiente"
+                }
+                return ex;
+            })
+        let laboratorio = {
+            IdPaciente: req.body.paciente,
+            Fecha: (new Date()).toString(),
+            Motivo: req.body.motivo,
+            ExamenesRealizados 
+        }
+        console.log(laboratorio)
+        res.json({ mensaje: "req.body" })
 /*         crudLaboratorio.guardar(req.body, () => {
             res.json({ mensaje: "Laboratorio Registrado con éxito" })
             console.log("******************** Fin Agregar Laboratorio ********************");

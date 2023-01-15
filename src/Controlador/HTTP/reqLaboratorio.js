@@ -39,7 +39,7 @@ export default (rutas) => {
             })
         let laboratorio = {
             IdPaciente: req.body.paciente._id,
-            Fecha: (new Date()).toString(),
+            Fecha: req.body.Fecha,
             Motivo: req.body.motivo,
             ExamenesRealizados 
         }

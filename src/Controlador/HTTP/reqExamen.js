@@ -12,8 +12,6 @@ export default (rutas) => {
     });
     rutas.post("/examen/agregar", async (req, res) => {
         console.log("******************** Agregar Examen ********************\nLlega:\n", req.body);
-        req.body.Password = await encriptarContra(req.body.Password);
-        req.body.Password = await desencriptarContra(req.body.Password);
         crudExamen.guardar(req.body,()=>
         {
             res.json({mensaje: "Examen Registrado con éxito"})

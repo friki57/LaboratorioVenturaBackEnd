@@ -28,7 +28,6 @@ function crud()
                     delete a.Email
                     delete a.Password
                     delete a.__v
-                    console.log(a)
                     if (a.CI) return a;
                 })
                 callback(pacientes)

@@ -15,6 +15,7 @@ export default (rutas) => {
                         {
                             a.paciente = pacientes.find(b=>b._id == a.IdPaciente)
                             a.examenes = examenes.map(b=>a.ExamenesRealizados.find(c=>c.IdExamen==b._id))
+                            return a;
                         })
                     res.json(ret)
                     console.log("******************** Fin Leer Todo Laboratorio ********************");

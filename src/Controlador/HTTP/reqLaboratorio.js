@@ -15,7 +15,8 @@ export default (rutas) => {
                         {
                             a.Paciente = pacientes.find(b=>b._id == a.IdPaciente)
                             a.ExamenesRealizados = a.ExamenesRealizados.map(b=>{
-                                b.Nombre = examenes.find(c=>c._id==b.IdExamen)
+                                b=b._doc;
+                                b.Examen = examenes.find(c=>c._id==b.IdExamen)
                                 return b;
                             })
                             return a;

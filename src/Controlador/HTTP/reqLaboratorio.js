@@ -19,16 +19,15 @@ export default (rutas) => {
                 return ex;
             })
         let laboratorio = {
-            IdPaciente: req.body.paciente,
+            IdPaciente: req.body.paciente._id,
             Fecha: (new Date()).toString(),
             Motivo: req.body.motivo,
             ExamenesRealizados 
         }
-        console.log(laboratorio)
-        res.json({ mensaje: "req.body" })
-/*         crudLaboratorio.guardar(req.body, () => {
+        console.log("laboratorio:", laboratorio)
+        crudLaboratorio.guardar(laboratorio, () => {
             res.json({ mensaje: "Laboratorio Registrado con éxito" })
             console.log("******************** Fin Agregar Laboratorio ********************");
-        }) */
+        })
     });
 }

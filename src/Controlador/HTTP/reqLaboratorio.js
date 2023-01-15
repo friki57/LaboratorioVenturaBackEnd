@@ -1,11 +1,25 @@
+import crudExamen from "../Cruds/crudExamen.js";
 import crudLaboratorio from "../Cruds/crudLaboratorio.js";
+import crudPaciente from "../Cruds/crudPaciente.js";
 
 export default (rutas) => {
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");
-        crudLaboratorio.buscarTodo((laboratorios) => {
-            res.json(laboratorios)
-            console.log("******************** Fin Leer Todo Laboratorio ********************");
+        crudPaciente.buscarTodo((pacientes)=>
+        {
+            crudExamen.buscarTodo((examenes)=>
+            {
+                crudLaboratorio.buscarTodo((laboratorios) => {
+                    let ret = laboratorios.map(a=>a._doc);
+                    ret = ret.map(a=>
+                        {
+                            a.paciente = pacientes.find(b=>b._id == a.IdPaciente)
+                            a.examenes = examenes.map(b=>a.ExamenesRealizados.find(c=>c.IdExamen==b._id))
+                        })
+                    res.json(ret)
+                    console.log("******************** Fin Leer Todo Laboratorio ********************");
+                })
+            })
         })
     });
     rutas.post("/laboratorio/agregar", async (req, res) => {

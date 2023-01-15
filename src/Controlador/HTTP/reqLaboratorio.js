@@ -27,6 +27,27 @@ export default (rutas) => {
             })
         })
     });
+    rutas.get("/laboratorio/leeruno/:id", async (req, res) => {
+        console.log("******************** Leer Uno Laboratorio ********************\n");
+        const {id} = req.params;
+        crudPaciente.buscarNombres((pacientes)=>
+        {
+            crudExamen.buscarTodo((examenes)=>
+            {
+                crudLaboratorio.buscarUno(id, (laboratorio) => {
+                    let a = laboratorio._doc;
+                    a.Paciente = pacientes.find(b=>b._id == a.IdPaciente)
+                    a.ExamenesRealizados = a.ExamenesRealizados.map(b=>{
+                        b=b._doc;
+                        b.Examen = examenes.find(c=>c._id==b.IdExamen)
+                        return b;
+                    })
+                    res.json(a)
+                    console.log("******************** Fin Leer Uno Laboratorio ********************");
+                })
+            })
+        })
+    });
     rutas.post("/laboratorio/agregar", async (req, res) => {
         console.log("******************** Agregar Laboratorio ********************\nLlega:\n", req.body);
         let ExamenesRealizados = req.body.examenes.map(a=>

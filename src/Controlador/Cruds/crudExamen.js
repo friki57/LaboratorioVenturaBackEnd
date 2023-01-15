@@ -11,6 +11,14 @@ function crud()
             else console.log(err)
         });
     }
+    this.buscarUno = (id, callback)=>
+    {
+        Examen.findOne({ "_id": id }, (err, product) =>
+        {
+            if(!err) callback(product)
+            else console.log(err)
+        });
+    }
     this.guardar = (product, callback)=>
     {
         var objeto = new Examen(product)

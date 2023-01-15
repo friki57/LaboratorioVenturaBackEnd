@@ -13,8 +13,10 @@ export default (rutas) => {
                     let ret = laboratorios.map(a=>a._doc);
                     ret = ret.map(a=>
                         {
-                            a.paciente = pacientes.find(b=>b._id == a.IdPaciente)
-                            a.examenes = examenes.map(b=>a.ExamenesRealizados.find(c=>c.IdExamen==b._id))
+                            a.Paciente = pacientes.find(b=>b._id == a.IdPaciente)
+                            a.ExamenesRealizados = a.ExamenesRealizados.map(b=>{
+                                b.Nombre = examenes.find(c=>c._id==b.IdExamen)
+                            })
                             return a;
                         })
                     res.json(ret)

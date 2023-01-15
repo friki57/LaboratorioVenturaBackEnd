@@ -8,12 +8,27 @@ const ResultadosSchema = new Schema(
         Metodo: String
     }
 )
-const LaboratorioSchema = new Schema(
+const ExamenesRealizadosSchema = new Schema(
     {
-        IdExamen: String,
-        Estado: String,
+        IdExamen: String, //
+        Estado: String, //
         Observaciones: String,
         Resultados: [ResultadosSchema]
+    }
+)
+const LaboratorioSchema = new Schema(
+    {
+        IdPaciente: String, //
+        IdUsuario: String,
+        Fecha: String, //
+        Motivo: String, //
+        IdDoctor: String,
+        FormaPago: String,
+        Costo: Number,
+        Descuento: Number,
+        Pagado: Number,
+        FechaRecoger: String,
+        ExamenesRealizados: [ExamenesRealizadosSchema] //
     }
 )
 

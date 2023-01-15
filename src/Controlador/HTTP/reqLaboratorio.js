@@ -5,7 +5,7 @@ import crudPaciente from "../Cruds/crudPaciente.js";
 export default (rutas) => {
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");
-        crudPaciente.buscarTodo((pacientes)=>
+        crudPaciente.buscarNombres((pacientes)=>
         {
             crudExamen.buscarTodo((examenes)=>
             {

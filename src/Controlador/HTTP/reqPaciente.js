@@ -12,21 +12,8 @@ export default (rutas) => {
     });
     rutas.get("/paciente/leerNombres", async (req, res) => {
         console.log("******************** Leer Nombres Paciente ********************\n");
-        crudPaciente.buscarTodo((pacientes)=>
+        crudPaciente.buscarNombres((pacientes)=>
         {
-            pacientes = pacientes.filter(a=>{
-                a = a._doc;
-                if(a.Nombres) a.NombreCompleto = a.Nombres.concat(" ", a.PrimerApellido, " ", a.SegundoApellido)
-                delete a.Genero
-                delete a.Telefono
-                delete a.Direccion
-                delete a.RazonSocial
-                delete a.NIT
-                delete a.Email
-                delete a.Password
-                delete a.__v
-                if(a.CI) return a;
-            })
             res.json(pacientes)
             console.log("******************** Fin Leer Nombres Paciente ********************");
         })

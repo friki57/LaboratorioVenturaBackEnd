@@ -2,11 +2,13 @@ import express from "express";
 import reqUsuario from "./reqUsuario.js";
 import reqPaciente from "./reqPaciente.js";
 import reqExamen from "./reqExamen.js";
+import reqLaboratorio from "./reqLaboratorio.js";
 export default () => {
     const rutas = express.Router();
     reqUsuario(rutas);
     reqPaciente(rutas);
     reqExamen(rutas);
+    reqLaboratorio(rutas);
     return rutas;
 }
 

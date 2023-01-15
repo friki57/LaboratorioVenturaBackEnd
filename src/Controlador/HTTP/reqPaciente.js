@@ -24,6 +24,7 @@ export default (rutas) => {
                 delete a.NIT
                 delete a.Email
                 delete a.Password
+                delete a.__v
                 if(a.CI) return a;
             })
             res.json(pacientes)

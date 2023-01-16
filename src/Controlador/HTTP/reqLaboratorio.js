@@ -80,6 +80,7 @@ export default (rutas) => {
             console.log(laboratorio, "exa", exa)
             let ind = 0
             laboratorio.ExamenesRealizados.map((ex,i) => {
+                console.log(ex, i)
                 if(ex.Examen.IdExamen == exa) ind = i;
             })
             console.log("ind",ind)

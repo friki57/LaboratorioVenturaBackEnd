@@ -71,8 +71,8 @@ export default (rutas) => {
         })
     });
     rutas.post("/laboratorio/modificar/:labo/:exa", async (req, res) => {
+        console.log("******************** Modificar Laboratorio ********************\nLlega:\n", req.body, req.params);
         const { labo, exa } = req.params;
-        console.log("******************** Modificar Laboratorio ********************\nLlega:\n", req.body, labo, exa);
         crudLaboratorio.buscarUno(labo, (laboratorio)=>
         {
             laboratorio = laboratorio._doc;
@@ -80,10 +80,10 @@ export default (rutas) => {
             console.log(laboratorio, "exa", exa)
             let ind = 0
             laboratorio.ExamenesRealizados.map((ex,i) => {
-                if(ex.IdExamen == exa) ind = i;
+                if(ex.Examen.IdExamen == exa) ind = i;
             })
             console.log("ind",ind)
-            laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados._doc
+            laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados.map(a => a._doc)
             Object.getOwnPropertyNames(req.body).map(campo => {
                 laboratorio.ExamenesRealizados[ind].Resultados.push({
                     Id_Campo: campo,

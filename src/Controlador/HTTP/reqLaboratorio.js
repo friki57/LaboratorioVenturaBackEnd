@@ -71,8 +71,8 @@ export default (rutas) => {
         })
     });
     rutas.post("/laboratorio/modificar/:labo/:exa", async (req, res) => {
-        console.log("******************** Modificar Laboratorio ********************\nLlega:\n", req.body, labo, exa);
         const { labo, exa } = req.params;
+        console.log("******************** Modificar Laboratorio ********************\nLlega:\n", req.body, labo, exa);
         crudLaboratorio.buscarUno(labo, (laboratorio)=>
         {
             laboratorio = laboratorio._doc;

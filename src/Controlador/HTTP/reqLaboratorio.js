@@ -81,7 +81,7 @@ export default (rutas) => {
             let ind = 0
             laboratorio.ExamenesRealizados.map((ex,i) => {
                 console.log(ex, i)
-                if(ex.Examen.IdExamen == exa) ind = i;
+                if(ex._id == exa) ind = i;
             })
             console.log("ind",ind)
             laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados.map(a => a._doc)

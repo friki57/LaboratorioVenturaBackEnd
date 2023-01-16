@@ -71,12 +71,13 @@ export default (rutas) => {
         })
     });
     rutas.post("/laboratorio/modificar/:labo/:exa", async (req, res) => {
-        console.log("******************** Agregar Laboratorio ********************\nLlega:\n", req.body);
+        console.log("******************** Modificar Laboratorio ********************\nLlega:\n", req.body);
         const { labo, exa } = req.params;
         crudLaboratorio.buscarUno(labo, (laboratorio)=>
         {
-            laboratorio = laboratorio._doc;
-            laboratorio.ExamenesRealizados = laboratorio.ExamenesRealizados._doc
+            // laboratorio = laboratorio._doc;
+            // laboratorio.ExamenesRealizados = laboratorio.ExamenesRealizados._doc
+            console.log(laboratorio, laboratorio._doc)
             let ind = laboratorio.ExamenesRealizados.find((ex,i) => {
                 if(ex.IdExamen == exa) return i
             })

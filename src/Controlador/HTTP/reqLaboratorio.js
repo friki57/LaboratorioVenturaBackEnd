@@ -91,7 +91,7 @@ export default (rutas) => {
                     Valor: req.body[campo]
                 })
             })
-            laboratorio.Motivo = "Realizado"
+            laboratorio.Estado = "Realizado"
             laboratorio.ExamenesRealizados[ind].Resultados = arr;
             console.log("resultados: ", arr, laboratorio)
             crudLaboratorio.modificar(labo, laboratorio, () => {

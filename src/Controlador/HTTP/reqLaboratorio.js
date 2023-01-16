@@ -77,21 +77,21 @@ export default (rutas) => {
         {
             laboratorio = laboratorio._doc;
             // laboratorio.ExamenesRealizados = laboratorio.ExamenesRealizados._doc
-            console.log(laboratorio, "exa", exa)
             let ind = 0
             laboratorio.ExamenesRealizados.map((ex,i) => {
-                console.log(ex, i)
                 if(ex._id == exa) ind = i;
             })
-            console.log("ind",ind)
             laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados.map(a => a._doc)
+            let arr = []
             Object.getOwnPropertyNames(req.body).map(campo => {
-                laboratorio.ExamenesRealizados[ind].Resultados.push({
+                // laboratorio.ExamenesRealizados[ind].Resultados
+                arr
+                .push({
                     Id_Campo: campo,
                     Valor: req.body[campo]
                 })
             })
-            console.log("resultados: ", laboratorio)
+            console.log("resultados: ", arr)
             res.json({ mensaje: "Pendiente" })
         })
 

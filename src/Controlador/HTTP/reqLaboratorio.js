@@ -84,7 +84,7 @@ export default (rutas) => {
             })
             console.log("ind",ind)
             laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados._doc
-            req.body.getOwnPropertyNames().map(campo => {
+            Object.getOwnPropertyNames(req.body).map(campo => {
                 laboratorio.ExamenesRealizados[ind].Resultados.push({
                     Id_Campo: campo,
                     Valor: req.body[campo]

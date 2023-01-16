@@ -28,6 +28,16 @@ function crud()
                 callback();
             })
     }
+    this.modificar = (id, datosnuevos, callback) => {
+        Laboratorio.update({ "_id": id }, datosnuevos, (error, res) => {
+            if (!error) {
+                callback(res);
+            }
+            else {
+                console.log("Error modificando en la tabla: " + tabla + "-", error);
+            }
+        });
+    }
 }
 
 export default new crud();

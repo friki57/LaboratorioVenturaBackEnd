@@ -70,4 +70,26 @@ export default (rutas) => {
             console.log("******************** Fin Agregar Laboratorio ********************");
         })
     });
+    rutas.post("/laboratorio/modificar/:labo/:exa", async (req, res) => {
+        console.log("******************** Agregar Laboratorio ********************\nLlega:\n", req.body);
+        const { labo, exa } = req.params;
+        crudLaboratorio.buscarUno(labo, (laboratorio)=>
+        {
+            laboratorio = laboratorio._doc;
+            laboratorio.ExamenesRealizados = laboratorio.ExamenesRealizados._doc
+            let ind = laboratorio.ExamenesRealizados.find((ex,i) => {
+                if(ex.IdExamen == exa) return i
+            })
+            laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados._doc
+            req.body.getOwnPropertyNames().map(campo => {
+                laboratorio.ExamenesRealizados[ind].Resultados.push({
+                    Id_Campo: campo,
+                    Valor: req.body[campo]
+                })
+            })
+            console.log("resultados: ", laboratorio)
+            res.json({ mensaje: "Pendiente" })
+        })
+
+    });
 }

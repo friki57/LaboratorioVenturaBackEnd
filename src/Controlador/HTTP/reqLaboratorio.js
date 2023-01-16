@@ -94,7 +94,10 @@ export default (rutas) => {
             laboratorio.Motivo = "Realizado"
             laboratorio.ExamenesRealizados[ind].Resultados = arr;
             console.log("resultados: ", arr, laboratorio)
-            res.json({ mensaje: "Pendiente" })
+            crudLaboratorio.modificar(labo, laboratorio, () => {
+                res.json({ mensaje: "Laboratorio Registrado con éxito" })
+                console.log("******************** Fin Agregar Laboratorio ********************");
+            })
         })
 
     });

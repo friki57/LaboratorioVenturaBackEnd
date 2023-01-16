@@ -91,7 +91,8 @@ export default (rutas) => {
                     Valor: req.body[campo]
                 })
             })
-            console.log("resultados: ", arr)
+            laboratorio.ExamenesRealizados[ind].Resultados = arr;
+            console.log("resultados: ", arr, laboratorio)
             res.json({ mensaje: "Pendiente" })
         })
 

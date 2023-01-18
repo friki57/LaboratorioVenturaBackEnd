@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const PacienteSchema = new Schema(
     {
+        CodigoPaciente: String,
         CI: String,
         Nombres: String,
         PrimerApellido: String,

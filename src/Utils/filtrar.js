@@ -2,6 +2,7 @@ export function filtrarLaboratorios(datos, filtro)
 {
     datos = ordenar(datos, filtro.ord)
     datos = filtrar(datos, filtro);
+    console.log(datos)
     return datos;
 }
 
@@ -9,7 +10,6 @@ function filtrar(datos, filtros)
 {
     if(filtros.Nombre != ""){
         datos = datos.filter(lab => {
-            console.log(lab.Paciente._doc.NombreCompleto)
             if (lab.Paciente._doc.NombreCompleto != undefined)
                 return lab.Paciente._doc.NombreCompleto.includes(filtros.Nombre)
         });

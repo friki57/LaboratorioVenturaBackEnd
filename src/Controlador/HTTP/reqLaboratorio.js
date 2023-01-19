@@ -102,7 +102,7 @@ export default (rutas) => {
         })
 
     });
-    rutas.get("/laboratorio/buscar", async (req, res) => {
+    rutas.post("/laboratorio/buscar", async (req, res) => {
         console.log("******************** Buscar Laboratorio ********************\n");
         console.log("Llega: ", req.body)
         crudPaciente.buscarNombres((pacientes) => {

@@ -12,9 +12,11 @@ function filtrar(datos, filtros)
         datos = datos.filter(lab => {
             if (lab.Paciente._doc.NombreCompleto != undefined){
                 if(filtros.Estado=="Pendiente")
-                    return lab.ExamenesRealizados.filter(ex=>ex.Estado==filtros.Estado).length>0
-                if(filtros.Estado=="Realizado")
-                    return lab.ExamenesRealizados.filter(ex=>ex.Estado!=filtros.Estado).length>0
+                return lab.ExamenesRealizados.filter(ex=>ex.Estado==filtros.Estado).length>0
+                if(filtros.Estado=="Realizado"){
+                    let realizados = lab.ExamenesRealizados.filter(ex => ex.Estado != filtros.Estado)
+                    return realizados.length==0
+                }
             }
         });
     }

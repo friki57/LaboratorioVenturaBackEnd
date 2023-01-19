@@ -8,10 +8,14 @@ export function filtrarLaboratorios(datos, filtro)
 
 function filtrar(datos, filtros)
 {
-    if (filtros.Estado != "") {
+    if (filtros.Estado != "" && filtros.Estado != "Todos") {
         datos = datos.filter(lab => {
-            if (lab.Paciente._doc.NombreCompleto != undefined)
-                return lab.ExamenesRealizados.filter(ex=>ex.Estado==filtros.Estado).length>0
+            if (lab.Paciente._doc.NombreCompleto != undefined){
+                if(filtros.Estado=="Pendiente")
+                    return lab.ExamenesRealizados.filter(ex=>ex.Estado==filtros.Estado).length>0
+                if(filtros.Estado=="Realizado")
+                    return lab.ExamenesRealizados.filter(ex=>ex.Estado!=filtros.Estado).length>0
+            }
         });
     }
     if(filtros.Nombre != ""){

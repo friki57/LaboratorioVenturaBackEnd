@@ -1,3 +1,4 @@
+import { filtrarLaboratorios } from "../../Utils/filtrar.js";
 import crudExamen from "../Cruds/crudExamen.js";
 import crudLaboratorio from "../Cruds/crudLaboratorio.js";
 import crudPaciente from "../Cruds/crudPaciente.js";
@@ -100,5 +101,29 @@ export default (rutas) => {
             })
         })
 
+    });
+    rutas.get("/laboratorio/buscar", async (req, res) => {
+        console.log("******************** Buscar Laboratorio ********************\n");
+        console.log("Llega: ", req.body)
+        crudPaciente.buscarNombres((pacientes) => {
+            crudExamen.buscarTodo((examenes) => {
+                crudLaboratorio.buscarTodo((laboratorios) => {
+                    let ret = laboratorios.map(a => a._doc);
+                    ret = ret.map(a => {
+                        a.Paciente = pacientes.find(b => b._id == a.IdPaciente)
+                        a.ExamenesRealizados = a.ExamenesRealizados.map(b => {
+                            b = b._doc;
+                            b.Examen = examenes.find(c => c._id == b.IdExamen)
+                            return b;
+                        })
+                        return a;
+                    })
+                    let filtro = req.body;
+                    ret = filtrarLaboratorios(ret, filtro)
+                    res.json(ret)
+                    console.log("******************** Fin Buscar Laboratorio ********************");
+                })
+            })
+        })
     });
 }

@@ -2,12 +2,18 @@ export function filtrarLaboratorios(datos, filtro)
 {
     datos = ordenar(datos, filtro.ord)
     datos = filtrar(datos, filtro);
-    console.log(datos)
+    // console.log(datos)
     return datos;
 }
 
 function filtrar(datos, filtros)
 {
+    if (filtros.Estado != "") {
+        datos = datos.filter(lab => {
+            if (lab.Paciente._doc.NombreCompleto != undefined)
+                return lab.ExamenesRealizados.filter(ex=>ex.Estado==filtros.Estado).length>0
+        });
+    }
     if(filtros.Nombre != ""){
         datos = datos.filter(lab => {
             if (lab.Paciente._doc.NombreCompleto != undefined)

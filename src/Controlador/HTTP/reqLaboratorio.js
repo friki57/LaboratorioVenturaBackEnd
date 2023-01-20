@@ -147,7 +147,7 @@ export default (rutas) => {
                     Categorias = [...new Set(Categorias)]
                     let ExamenCategorizado = Categorias.map(cat=>
                         {
-                            Examenes.filter(exa=>{
+                            return Examenes.filter(exa=>{
                                 let encontrado = false;
                                 exa.Campos.map(camp=>
                                     {
@@ -155,6 +155,7 @@ export default (rutas) => {
                                     })
                                 if(encontrado) return exa;
                             })
+
                         })
                     console.log(Categorias, ExamenCategorizado)
                     res.json(a)

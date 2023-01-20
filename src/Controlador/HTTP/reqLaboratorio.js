@@ -142,9 +142,9 @@ export default (rutas) => {
                     let Examenes = a.ExamenesRealizados.map(a=>a.Examen._doc)
                     Examenes = a.ExamenesRealizados.map((a,i)=>{return {...Examenes[i], Resultados: a.Resultados}})
                     let Categorias = Examenes.map(ex => [...ex.Campos.map(camp => camp.SubCategoria)]).flat(1);
+                    Categorias = [...new Set(Categorias)]
                     a.ExamenesRealizados = Examenes
                     a.Categorias = Categorias
-                    Categorias = [...new Set(Categorias)]
                     let ExamenCategorizado = Categorias.map(cat=>
                         {
                             return Examenes.map(exa=>{

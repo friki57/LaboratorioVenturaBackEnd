@@ -151,8 +151,11 @@ export default (rutas) => {
                                 let encontrado = false;
                                 let cam = exa.Campos.filter(camp=>
                                     {
-                                        if(camp.SubCategoria==cat) encontrado = true;
-                                        if(encontrado) return camp
+                                        if(camp.SubCategoria==cat) 
+                                        {
+                                            encontrado = true;
+                                            return camp
+                                        }
                                     })
                                 if(encontrado) return cam;
                             })

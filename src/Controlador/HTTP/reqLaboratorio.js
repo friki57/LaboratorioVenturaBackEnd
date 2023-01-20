@@ -141,7 +141,7 @@ export default (rutas) => {
                     })
                     let Examenes = a.ExamenesRealizados.map(a=>a.Examen._doc)
                     Examenes = a.ExamenesRealizados.map((a,i)=>{return {...Examenes[i], Resultados: a.Resultados}})
-                    let Categorias = Examenes.map(ex=>[...ex.Campos.map(camp=>camp.SubCategoria)])
+                    let Categorias = Examenes.map(ex => [...ex.Campos.map(camp => camp.SubCategoria)]).flat(1);
                     console.log(Examenes)
                     a.ExamenesRealizados = Examenes
                     a.Categorias = Categorias

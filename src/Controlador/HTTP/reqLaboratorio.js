@@ -139,7 +139,7 @@ export default (rutas) => {
                         b.Examen = examenes.find(c => c._id == b.IdExamen)
                         return b;
                     })
-                    let Examenes = a.ExamenesRealizados.map(a=>a.Examen)
+                    let Examenes = a.ExamenesRealizados.map(a=>a.Examen._doc)
                     Examenes = a.ExamenesRealizados.map((a,i)=>{return {...Examenes[i], Resultados: a.Resultados}})
                     console.log(Examenes)
                     res.json(a)

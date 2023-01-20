@@ -142,6 +142,7 @@ export default (rutas) => {
                     let Examenes = a.ExamenesRealizados.map(a=>a.Examen._doc)
                     Examenes = a.ExamenesRealizados.map((a,i)=>{return {...Examenes[i], Resultados: a.Resultados}})
                     console.log(Examenes)
+                    a.ExamenesRealizados = Examenes
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })

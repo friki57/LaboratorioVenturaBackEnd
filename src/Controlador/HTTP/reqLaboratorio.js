@@ -149,11 +149,12 @@ export default (rutas) => {
                         {
                             return Examenes.filter(exa=>{
                                 let encontrado = false;
-                                exa.Campos.map(camp=>
+                                let cam = exa.Campos.filter(camp=>
                                     {
                                         if(camp.SubCategoria==cat) encontrado = true;
+                                        if(encontrado) return camp
                                     })
-                                if(encontrado) return exa;
+                                if(encontrado) return cam;
                             })
 
                         })

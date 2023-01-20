@@ -144,7 +144,19 @@ export default (rutas) => {
                     let Categorias = Examenes.map(ex => [...ex.Campos.map(camp => camp.SubCategoria)]).flat(1);
                     a.ExamenesRealizados = Examenes
                     a.Categorias = Categorias
-                    console.log(Categorias)
+                    Categorias = [...new Set(Categorias)]
+                    let ExamenCategorizado = Categorias.map(cat=>
+                        {
+                            Examenes.filter(exa=>{
+                                let encontrado = false;
+                                exa.Campos.map(camp=>
+                                    {
+                                        if(camp.SubCategoria==cat) encontrado = true;
+                                    })
+                                if(encontrado) return exa;
+                            })
+                        })
+                    console.log(Categorias, ExamenCategorizado)
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })

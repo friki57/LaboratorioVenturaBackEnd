@@ -161,7 +161,8 @@ export default (rutas) => {
                             }).flat(1).filter(fi=>fi!=null)
                         })
                     console.log(Categorias, ExamenCategorizado)
-                    res.json({ Categorias, ExamenCategorizado })
+                    a.ExamenCategorizado = ExamenCategorizado;
+                    res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })
             })

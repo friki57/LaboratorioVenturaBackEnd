@@ -158,7 +158,7 @@ export default (rutas) => {
                                         }
                                     })
                                 if(encontrado) return cam;
-                            })
+                            }).flat(1).filter(fi=>fi!=null)
                         })
                     console.log(Categorias, ExamenCategorizado)
                     res.json({ Categorias, ExamenCategorizado })

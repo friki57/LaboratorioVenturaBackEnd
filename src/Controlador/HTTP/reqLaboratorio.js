@@ -139,6 +139,7 @@ export default (rutas) => {
                         b.Examen = examenes.find(c => c._id == b.IdExamen)
                         return b;
                     })
+                    console.log("------------------------")
                     console.log(a)
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");

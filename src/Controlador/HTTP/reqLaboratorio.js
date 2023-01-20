@@ -161,7 +161,7 @@ export default (rutas) => {
                             })
                         })
                     console.log(Categorias, ExamenCategorizado)
-                    res.json(a)
+                    res.json({ Categorias, ExamenCategorizado })
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })
             })

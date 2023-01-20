@@ -13,7 +13,6 @@ function crud()
     }
     this.buscarNombres = (callback)=>
     {
-        console.log("buscarnombres")
         Paciente.find((err, pacientes)=>
         {
             if(!err) {

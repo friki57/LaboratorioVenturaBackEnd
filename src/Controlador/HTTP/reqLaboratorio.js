@@ -201,13 +201,13 @@ export default (rutas) => {
                         return {nombre: cat, examenes: a.ExamenCategorizado[i]}
                     })
                     delete a.ExamenCategorizado;
-                    let examenes = [...new Set(a.ExamenesRealizados.map(ex => {return {Nombre: ex.Nombre, Categoria: ex.Categoria}}))]
+                    let examene = [...new Set(a.ExamenesRealizados.map(ex => {return {Nombre: ex.Nombre, Categoria: ex.Categoria}}))]
                     let catp = [...new Set(a.ExamenesRealizados.map(ex => ex.Categoria))]
                     let examf = catp.map(cat=>
                         {
                             return {
                                 Categoria: cat,
-                                Examenes: examenes.filter(ex=>ex.Categoria==cat)
+                                Examenes: examene.filter(ex=>ex.Categoria==cat)
                             }
                         })
                     a.examf = examf

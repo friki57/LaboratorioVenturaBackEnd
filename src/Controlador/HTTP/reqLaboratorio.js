@@ -212,7 +212,7 @@ export default (rutas) => {
                             }
                         })
                     examf = examf.map(cat => {
-                        cat.Examenes = cat.Examenes.map(ex=>{
+                        cat.Examenes = cat.Examenes.map(ex=>{   
                             ex.SubCategoria = []
                             ex.Campos.map(cam=>{
                                 let ncam = {}
@@ -235,7 +235,7 @@ export default (rutas) => {
                             })
                             return ex;
                         })
-                        console.log(ex.SubCategoria)
+                        // console.log(ex.SubCategoria)
                         return cat;
                     })
                     a.examf = examf

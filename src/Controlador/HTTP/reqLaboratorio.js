@@ -4,7 +4,7 @@ import crudLaboratorio from "../Cruds/crudLaboratorio.js";
 import crudPaciente from "../Cruds/crudPaciente.js";
 
 import { valRef } from "../../Utils/valRef.js";
-
+import { calcularEdad } from "../../Utils/calcEdad"
 export default (rutas) => {
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");
@@ -192,9 +192,8 @@ export default (rutas) => {
                             return ex
                         })
                     })
-                    a.NombreCompleto = a.Paciente.NombreCompleto
                     console.log(a.ExamenCategorizado);
-
+                    a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })

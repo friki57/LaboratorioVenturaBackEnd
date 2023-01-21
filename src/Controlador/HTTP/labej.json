@@ -14,77 +14,104 @@
                     "ValorReferencia": "4.500.000 - 5.600.000",
                     "Concentracion": "/mm`3",
                     "SubCategoria": "SERIE ROJA",
-                    "_id": "63c9fe086038c9c35cad4dfb"
+                    "_id": "63c9fe086038c9c35cad4dfb",
+                    "Resultado": "5.457.000",
+                    "valRef": 0,
+                    "dentroRango": "5.457.000"
                 },
                 {
                     "Nombre": "Hemoglobina",
                     "ValorReferencia": "13 - 18",
                     "Concentracion": "g/dl",
                     "SubCategoria": "SERIE ROJA",
-                    "_id": "63c9fe086038c9c35cad4dfc"
+                    "_id": "63c9fe086038c9c35cad4dfc",
+                    "Resultado": "16.2",
+                    "valRef": 0,
+                    "dentroRango": "16.2"
                 },
                 {
                     "Nombre": "Hematocrito",
                     "ValorReferencia": "40 - 52",
                     "Concentracion": "%",
                     "SubCategoria": "SERIE ROJA",
-                    "_id": "63c9fe086038c9c35cad4dfd"
+                    "_id": "63c9fe086038c9c35cad4dfd",
+                    "Resultado": "51",
+                    "valRef": 0,
+                    "dentroRango": "51"
                 },
                 {
                     "Nombre": "Plaquetas",
                     "ValorReferencia": "150.000 - 450.000",
                     "Concentracion": "/mm`3",
                     "SubCategoria": "SERIE ROJA",
-                    "_id": "63c9fe086038c9c35cad4dfe"
+                    "_id": "63c9fe086038c9c35cad4dfe",
+                    "Resultado": "304.000",
+                    "valRef": 0,
+                    "dentroRango": "304.000"
                 },
                 {
                     "Nombre": "Leucocitos",
                     "ValorReferencia": "4.500 - 10.000",
                     "Concentracion": "/mm`3",
                     "SubCategoria": "SERIE BLANCA",
-                    "_id": "63c9fe086038c9c35cad4dff"
+                    "_id": "63c9fe086038c9c35cad4dff",
+                    "Resultado": "5.400",
+                    "valRef": 0,
+                    "dentroRango": "5.400"
                 },
                 {
                     "Nombre": "Cayados",
                     "ValorReferencia": "0 - 3",
                     "Concentracion": "%",
                     "SubCategoria": "FORMULA LEUCOCITARIA",
-                    "_id": "63c9fe086038c9c35cad4e00"
+                    "_id": "63c9fe086038c9c35cad4e00",
+                    "Resultado": ""
                 },
                 {
                     "Nombre": "Segmentados",
                     "ValorReferencia": "50 - 65",
                     "Concentracion": "%",
                     "SubCategoria": "FORMULA LEUCOCITARIA",
-                    "_id": "63c9fe086038c9c35cad4e01"
+                    "_id": "63c9fe086038c9c35cad4e01",
+                    "Resultado": "62",
+                    "valRef": 0,
+                    "dentroRango": "62"
                 },
                 {
                     "Nombre": "Linfocitos",
                     "ValorReferencia": "25 - 40",
                     "Concentracion": "%",
                     "SubCategoria": "FORMULA LEUCOCITARIA",
-                    "_id": "63c9fe086038c9c35cad4e02"
+                    "_id": "63c9fe086038c9c35cad4e02",
+                    "Resultado": "31",
+                    "valRef": 0,
+                    "dentroRango": "31"
                 },
                 {
                     "Nombre": "Monocitos",
                     "ValorReferencia": "2 - 8",
                     "Concentracion": "%",
                     "SubCategoria": "FORMULA LEUCOCITARIA",
-                    "_id": "63c9fe086038c9c35cad4e03"
+                    "_id": "63c9fe086038c9c35cad4e03",
+                    "Resultado": "7",
+                    "valRef": 0,
+                    "dentroRango": "7"
                 },
                 {
                     "Nombre": "Eosinófilos",
                     "ValorReferencia": "1 - 4",
                     "Concentracion": "%",
                     "SubCategoria": "FORMULA LEUCOCITARIA",
-                    "_id": "63c9fe086038c9c35cad4e04"
+                    "_id": "63c9fe086038c9c35cad4e04",
+                    "Resultado": ""
                 },
                 {
                     "Nombre": "Basófilos",
                     "ValorReferencia": "0 - 1",
                     "Concentracion": "%",
                     "SubCategoria": "FORMULA LEUCOCITARIA",
-                    "_id": "63c9fe086038c9c35cad4e05"
+                    "_id": "63c9fe086038c9c35cad4e05",
+                    "Resultado": ""
                 }
             ],
             "__v": 0,
@@ -141,7 +168,9 @@
                     "ValorReferencia": "NEGATIVO - POSITIVO",
                     "Concentracion": "",
                     "SubCategoria": "",
-                    "_id": "63ca00096038c9c35cad4e93"
+                    "_id": "63ca00096038c9c35cad4e93",
+                    "Resultado": "NEGATIVO",
+                    "dentroRango": "NEGATIVO"
                 }
             ],
             "__v": 0,
@@ -155,6 +184,8 @@
         }
     ],
     "__v": 0,
+    "NombreCompleto":"Erick Rodrigo Aranibar Arias",
+    "edad": 24,
     "Paciente": {
         "_id": "63c42df9b2f2d4974351ed99",
         "CI": "6848234",
@@ -177,28 +208,40 @@
                 "ValorReferencia": "4.500.000 - 5.600.000",
                 "Concentracion": "/mm`3",
                 "SubCategoria": "SERIE ROJA",
-                "_id": "63c9fe086038c9c35cad4dfb"
+                "_id": "63c9fe086038c9c35cad4dfb",
+                "Resultado": "5.457.000",
+                "valRef": 0,
+                "dentroRango": "5.457.000"
             },
             {
                 "Nombre": "Hemoglobina",
                 "ValorReferencia": "13 - 18",
                 "Concentracion": "g/dl",
                 "SubCategoria": "SERIE ROJA",
-                "_id": "63c9fe086038c9c35cad4dfc"
+                "_id": "63c9fe086038c9c35cad4dfc",
+                "Resultado": "16.2",
+                "valRef": 0,
+                "dentroRango": "16.2"
             },
             {
                 "Nombre": "Hematocrito",
                 "ValorReferencia": "40 - 52",
                 "Concentracion": "%",
                 "SubCategoria": "SERIE ROJA",
-                "_id": "63c9fe086038c9c35cad4dfd"
+                "_id": "63c9fe086038c9c35cad4dfd",
+                "Resultado": "51",
+                "valRef": 0,
+                "dentroRango": "51"
             },
             {
                 "Nombre": "Plaquetas",
                 "ValorReferencia": "150.000 - 450.000",
                 "Concentracion": "/mm`3",
                 "SubCategoria": "SERIE ROJA",
-                "_id": "63c9fe086038c9c35cad4dfe"
+                "_id": "63c9fe086038c9c35cad4dfe",
+                "Resultado": "304.000",
+                "valRef": 0,
+                "dentroRango": "304.000"
             }
         ],
         [
@@ -207,7 +250,10 @@
                 "ValorReferencia": "4.500 - 10.000",
                 "Concentracion": "/mm`3",
                 "SubCategoria": "SERIE BLANCA",
-                "_id": "63c9fe086038c9c35cad4dff"
+                "_id": "63c9fe086038c9c35cad4dff",
+                "Resultado": "5.400",
+                "valRef": 0,
+                "dentroRango": "5.400"
             }
         ],
         [
@@ -216,42 +262,54 @@
                 "ValorReferencia": "0 - 3",
                 "Concentracion": "%",
                 "SubCategoria": "FORMULA LEUCOCITARIA",
-                "_id": "63c9fe086038c9c35cad4e00"
+                "_id": "63c9fe086038c9c35cad4e00",
+                "Resultado": ""
             },
             {
                 "Nombre": "Segmentados",
                 "ValorReferencia": "50 - 65",
                 "Concentracion": "%",
                 "SubCategoria": "FORMULA LEUCOCITARIA",
-                "_id": "63c9fe086038c9c35cad4e01"
+                "_id": "63c9fe086038c9c35cad4e01",
+                "Resultado": "62",
+                "valRef": 0,
+                "dentroRango": "62"
             },
             {
                 "Nombre": "Linfocitos",
                 "ValorReferencia": "25 - 40",
                 "Concentracion": "%",
                 "SubCategoria": "FORMULA LEUCOCITARIA",
-                "_id": "63c9fe086038c9c35cad4e02"
+                "_id": "63c9fe086038c9c35cad4e02",
+                "Resultado": "31",
+                "valRef": 0,
+                "dentroRango": "31"
             },
             {
                 "Nombre": "Monocitos",
                 "ValorReferencia": "2 - 8",
                 "Concentracion": "%",
                 "SubCategoria": "FORMULA LEUCOCITARIA",
-                "_id": "63c9fe086038c9c35cad4e03"
+                "_id": "63c9fe086038c9c35cad4e03",
+                "Resultado": "7",
+                "valRef": 0,
+                "dentroRango": "7"
             },
             {
                 "Nombre": "Eosinófilos",
                 "ValorReferencia": "1 - 4",
                 "Concentracion": "%",
                 "SubCategoria": "FORMULA LEUCOCITARIA",
-                "_id": "63c9fe086038c9c35cad4e04"
+                "_id": "63c9fe086038c9c35cad4e04",
+                "Resultado": ""
             },
             {
                 "Nombre": "Basófilos",
                 "ValorReferencia": "0 - 1",
                 "Concentracion": "%",
                 "SubCategoria": "FORMULA LEUCOCITARIA",
-                "_id": "63c9fe086038c9c35cad4e05"
+                "_id": "63c9fe086038c9c35cad4e05",
+                "Resultado": ""
             }
         ],
         [
@@ -260,7 +318,9 @@
                 "ValorReferencia": "NEGATIVO - POSITIVO",
                 "Concentracion": "",
                 "SubCategoria": "",
-                "_id": "63ca00096038c9c35cad4e93"
+                "_id": "63ca00096038c9c35cad4e93",
+                "Resultado": "NEGATIVO",
+                "dentroRango": "NEGATIVO"
             }
         ]
     ]

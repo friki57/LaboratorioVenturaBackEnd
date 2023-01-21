@@ -12,6 +12,22 @@ export default () => {
     return rutas;
 }
 
+import labo from "./labej.json" assert { type: "json" };
+import { reporteLaboratorio } from "../../Utils/docx.js";
+// console.log("%j",labo)
+reporteLaboratorio(labo)
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* var ret = () => {
     const express = require('express');

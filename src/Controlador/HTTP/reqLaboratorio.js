@@ -239,6 +239,18 @@ export default (rutas) => {
                         return cat;
                     })
                     delete a.Categorias
+                    examf = examf.map(cat=>
+                        {
+                            cat.Examenes = cat.Examenes.map(ex=>{
+                                delete ex.Campos;
+                                ex = ex.SubCategoria.filter(sub=>{
+                                    if(sub.Campos.length>0)
+                                        return sub;
+                                })
+                                return ex;
+                            })
+                            return cat;
+                        })
                     a.ExamenesFinal = examf
                     a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)

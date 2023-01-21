@@ -255,8 +255,8 @@ export default (rutas) => {
                     a.ExamenesFinal = examf
                     a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)
-                    console.log(JSON.stringify(a, null, 4))
-                    reporteLaboratorio(a, ()=>
+                    console.log(JSON.parse(JSON.stringify(a, null, 4)))
+                    reporteLaboratorio(JSON.parse(JSON.stringify(a, null, 4)), ()=>
                     {
                         res.download("./src/Utils/ReporteLaboratorio.docx")
                         console.log("******************** Fin Leer Uno Laboratorio ********************");

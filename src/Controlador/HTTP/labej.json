@@ -231,221 +231,181 @@
         {
             "Categoria": "Hematología",
             "Examenes": [
-                {
-                    "Nombre": "HEMOGRAMA",
-                    "Categoria": "Hematología",
-                    "Campos": [
-                        "63c9fe086038c9c35cad4dfb",
-                        "63c9fe086038c9c35cad4dfc",
-                        "63c9fe086038c9c35cad4dfd",
-                        "63c9fe086038c9c35cad4dfe",
-                        "63c9fe086038c9c35cad4dff",
-                        "63c9fe086038c9c35cad4e00",
-                        "63c9fe086038c9c35cad4e01",
-                        "63c9fe086038c9c35cad4e02",
-                        "63c9fe086038c9c35cad4e03",
-                        "63c9fe086038c9c35cad4e04",
-                        "63c9fe086038c9c35cad4e05"
-                    ],
-                    "SubCategoria": [
-                        {
-                            "Nombre": "SERIE ROJA",
-                            "Campos": [
-                                {
-                                    "Nombre": "Eritrocitos",
-                                    "ValorReferencia": "4.500.000 - 5.600.000",
-                                    "Concentracion": "/mm`3",
-                                    "SubCategoria": "SERIE ROJA",
-                                    "_id": "63c9fe086038c9c35cad4dfb",
-                                    "dentroRango": "5.457.000",
-                                    "fueraRango": "",
-                                    "Resultado": "5.457.000",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                },
-                                {
-                                    "Nombre": "Hemoglobina",
-                                    "ValorReferencia": "13 - 18",
-                                    "Concentracion": "g/dl",
-                                    "SubCategoria": "SERIE ROJA",
-                                    "_id": "63c9fe086038c9c35cad4dfc",
-                                    "dentroRango": "16.2",
-                                    "fueraRango": "",
-                                    "Resultado": "16.2",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                },
-                                {
-                                    "Nombre": "Hematocrito",
-                                    "ValorReferencia": "40 - 52",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "SERIE ROJA",
-                                    "_id": "63c9fe086038c9c35cad4dfd",
-                                    "dentroRango": "51",
-                                    "fueraRango": "",
-                                    "Resultado": "51",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                },
-                                {
-                                    "Nombre": "Plaquetas",
-                                    "ValorReferencia": "150.000 - 450.000",
-                                    "Concentracion": "/mm`3",
-                                    "SubCategoria": "SERIE ROJA",
-                                    "_id": "63c9fe086038c9c35cad4dfe",
-                                    "dentroRango": "304.000",
-                                    "fueraRango": "",
-                                    "Resultado": "304.000",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                }
-                            ]
-                        },
-                        {
-                            "Nombre": "SERIE BLANCA",
-                            "Campos": [
-                                {
-                                    "Nombre": "Leucocitos",
-                                    "ValorReferencia": "4.500 - 10.000",
-                                    "Concentracion": "/mm`3",
-                                    "SubCategoria": "SERIE BLANCA",
-                                    "_id": "63c9fe086038c9c35cad4dff",
-                                    "dentroRango": "5.400",
-                                    "fueraRango": "",
-                                    "Resultado": "5.400",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                }
-                            ]
-                        },
-                        {
-                            "Nombre": "FORMULA LEUCOCITARIA",
-                            "Campos": [
-                                {
-                                    "Nombre": "Cayados",
-                                    "ValorReferencia": "0 - 3",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "FORMULA LEUCOCITARIA",
-                                    "_id": "63c9fe086038c9c35cad4e00",
-                                    "dentroRango": "",
-                                    "fueraRango": "",
-                                    "Resultado": ""
-                                },
-                                {
-                                    "Nombre": "Segmentados",
-                                    "ValorReferencia": "50 - 65",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "FORMULA LEUCOCITARIA",
-                                    "_id": "63c9fe086038c9c35cad4e01",
-                                    "dentroRango": "62",
-                                    "fueraRango": "",
-                                    "Resultado": "62",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                },
-                                {
-                                    "Nombre": "Linfocitos",
-                                    "ValorReferencia": "25 - 40",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "FORMULA LEUCOCITARIA",
-                                    "_id": "63c9fe086038c9c35cad4e02",
-                                    "dentroRango": "31",
-                                    "fueraRango": "",
-                                    "Resultado": "31",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                },
-                                {
-                                    "Nombre": "Monocitos",
-                                    "ValorReferencia": "2 - 8",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "FORMULA LEUCOCITARIA",
-                                    "_id": "63c9fe086038c9c35cad4e03",
-                                    "dentroRango": "7",
-                                    "fueraRango": "",
-                                    "Resultado": "7",
-                                    "NombreExamen": "HEMOGRAMA",
-                                    "Categoria": "Hematología",
-                                    "valRef": 0
-                                },
-                                {
-                                    "Nombre": "Eosinófilos",
-                                    "ValorReferencia": "1 - 4",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "FORMULA LEUCOCITARIA",
-                                    "_id": "63c9fe086038c9c35cad4e04",
-                                    "dentroRango": "",
-                                    "fueraRango": "",
-                                    "Resultado": ""
-                                },
-                                {
-                                    "Nombre": "Basófilos",
-                                    "ValorReferencia": "0 - 1",
-                                    "Concentracion": "%",
-                                    "SubCategoria": "FORMULA LEUCOCITARIA",
-                                    "_id": "63c9fe086038c9c35cad4e05",
-                                    "dentroRango": "",
-                                    "fueraRango": "",
-                                    "Resultado": ""
-                                }
-                            ]
-                        },
-                        {
-                            "Nombre": "",
-                            "Campos": []
-                        }
-                    ]
-                }
+                [
+                    {
+                        "Nombre": "SERIE ROJA",
+                        "Campos": [
+                            {
+                                "Nombre": "Eritrocitos",
+                                "ValorReferencia": "4.500.000 - 5.600.000",
+                                "Concentracion": "/mm`3",
+                                "SubCategoria": "SERIE ROJA",
+                                "_id": "63c9fe086038c9c35cad4dfb",
+                                "dentroRango": "5.457.000",
+                                "fueraRango": "",
+                                "Resultado": "5.457.000",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            },
+                            {
+                                "Nombre": "Hemoglobina",
+                                "ValorReferencia": "13 - 18",
+                                "Concentracion": "g/dl",
+                                "SubCategoria": "SERIE ROJA",
+                                "_id": "63c9fe086038c9c35cad4dfc",
+                                "dentroRango": "16.2",
+                                "fueraRango": "",
+                                "Resultado": "16.2",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            },
+                            {
+                                "Nombre": "Hematocrito",
+                                "ValorReferencia": "40 - 52",
+                                "Concentracion": "%",
+                                "SubCategoria": "SERIE ROJA",
+                                "_id": "63c9fe086038c9c35cad4dfd",
+                                "dentroRango": "51",
+                                "fueraRango": "",
+                                "Resultado": "51",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            },
+                            {
+                                "Nombre": "Plaquetas",
+                                "ValorReferencia": "150.000 - 450.000",
+                                "Concentracion": "/mm`3",
+                                "SubCategoria": "SERIE ROJA",
+                                "_id": "63c9fe086038c9c35cad4dfe",
+                                "dentroRango": "304.000",
+                                "fueraRango": "",
+                                "Resultado": "304.000",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            }
+                        ]
+                    },
+                    {
+                        "Nombre": "SERIE BLANCA",
+                        "Campos": [
+                            {
+                                "Nombre": "Leucocitos",
+                                "ValorReferencia": "4.500 - 10.000",
+                                "Concentracion": "/mm`3",
+                                "SubCategoria": "SERIE BLANCA",
+                                "_id": "63c9fe086038c9c35cad4dff",
+                                "dentroRango": "5.400",
+                                "fueraRango": "",
+                                "Resultado": "5.400",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            }
+                        ]
+                    },
+                    {
+                        "Nombre": "FORMULA LEUCOCITARIA",
+                        "Campos": [
+                            {
+                                "Nombre": "Cayados",
+                                "ValorReferencia": "0 - 3",
+                                "Concentracion": "%",
+                                "SubCategoria": "FORMULA LEUCOCITARIA",
+                                "_id": "63c9fe086038c9c35cad4e00",
+                                "dentroRango": "",
+                                "fueraRango": "",
+                                "Resultado": ""
+                            },
+                            {
+                                "Nombre": "Segmentados",
+                                "ValorReferencia": "50 - 65",
+                                "Concentracion": "%",
+                                "SubCategoria": "FORMULA LEUCOCITARIA",
+                                "_id": "63c9fe086038c9c35cad4e01",
+                                "dentroRango": "62",
+                                "fueraRango": "",
+                                "Resultado": "62",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            },
+                            {
+                                "Nombre": "Linfocitos",
+                                "ValorReferencia": "25 - 40",
+                                "Concentracion": "%",
+                                "SubCategoria": "FORMULA LEUCOCITARIA",
+                                "_id": "63c9fe086038c9c35cad4e02",
+                                "dentroRango": "31",
+                                "fueraRango": "",
+                                "Resultado": "31",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            },
+                            {
+                                "Nombre": "Monocitos",
+                                "ValorReferencia": "2 - 8",
+                                "Concentracion": "%",
+                                "SubCategoria": "FORMULA LEUCOCITARIA",
+                                "_id": "63c9fe086038c9c35cad4e03",
+                                "dentroRango": "7",
+                                "fueraRango": "",
+                                "Resultado": "7",
+                                "NombreExamen": "HEMOGRAMA",
+                                "Categoria": "Hematología",
+                                "valRef": 0
+                            },
+                            {
+                                "Nombre": "Eosinófilos",
+                                "ValorReferencia": "1 - 4",
+                                "Concentracion": "%",
+                                "SubCategoria": "FORMULA LEUCOCITARIA",
+                                "_id": "63c9fe086038c9c35cad4e04",
+                                "dentroRango": "",
+                                "fueraRango": "",
+                                "Resultado": ""
+                            },
+                            {
+                                "Nombre": "Basófilos",
+                                "ValorReferencia": "0 - 1",
+                                "Concentracion": "%",
+                                "SubCategoria": "FORMULA LEUCOCITARIA",
+                                "_id": "63c9fe086038c9c35cad4e05",
+                                "dentroRango": "",
+                                "fueraRango": "",
+                                "Resultado": ""
+                            }
+                        ]
+                    }
+                ]
             ]
         },
         {
             "Categoria": "Serologia",
             "Examenes": [
-                {
-                    "Nombre": "HEPATITIS B",
-                    "Categoria": "Serologia",
-                    "Campos": [
-                        "63ca00096038c9c35cad4e93"
-                    ],
-                    "SubCategoria": [
-                        {
-                            "Nombre": "SERIE ROJA",
-                            "Campos": []
-                        },
-                        {
-                            "Nombre": "SERIE BLANCA",
-                            "Campos": []
-                        },
-                        {
-                            "Nombre": "FORMULA LEUCOCITARIA",
-                            "Campos": []
-                        },
-                        {
-                            "Nombre": "",
-                            "Campos": [
-                                {
-                                    "Nombre": "Hepatitis B",
-                                    "ValorReferencia": "NEGATIVO - POSITIVO",
-                                    "Concentracion": "",
-                                    "SubCategoria": "",
-                                    "_id": "63ca00096038c9c35cad4e93",
-                                    "dentroRango": "NEGATIVO",
-                                    "fueraRango": "",
-                                    "Resultado": "NEGATIVO",
-                                    "NombreExamen": "HEPATITIS B",
-                                    "Categoria": "Serologia"
-                                }
-                            ]
-                        }
-                    ]
-                }
+                [
+                    {
+                        "Nombre": "",
+                        "Campos": [
+                            {
+                                "Nombre": "Hepatitis B",
+                                "ValorReferencia": "NEGATIVO - POSITIVO",
+                                "Concentracion": "",
+                                "SubCategoria": "",
+                                "_id": "63ca00096038c9c35cad4e93",
+                                "dentroRango": "NEGATIVO",
+                                "fueraRango": "",
+                                "Resultado": "NEGATIVO",
+                                "NombreExamen": "HEPATITIS B",
+                                "Categoria": "Serologia"
+                            }
+                        ]
+                    }
+                ]
             ]
         }
     ]

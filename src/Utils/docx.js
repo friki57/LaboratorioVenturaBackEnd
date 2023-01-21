@@ -4,7 +4,7 @@ import Docxtemplater from "docxtemplater";
 import fs from "fs"
 import path from "path"
 
-export function reporteLaboratorio(datos)
+export function reporteLaboratorio(datos, callback)
 {
     const content = fs.readFileSync(
         path.resolve("./src/Utils/Nombre.docx"),
@@ -21,4 +21,5 @@ export function reporteLaboratorio(datos)
         compression: "DEFLATE",
     });
     fs.writeFileSync(path.resolve("./src/Utils/output.docx"), buf);
+    callback()
 }

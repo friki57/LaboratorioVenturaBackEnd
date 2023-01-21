@@ -3,8 +3,8 @@ import crudExamen from "../Cruds/crudExamen.js";
 import crudLaboratorio from "../Cruds/crudLaboratorio.js";
 import crudPaciente from "../Cruds/crudPaciente.js";
 
-import { valRef } from "../../../Utils/valRef.js";
-import { calcularEdad } from "../../../Utils/calcEdad.js"
+import { valRef } from "../../Utils/valRef.js";
+import { calcularEdad } from "../../Utils/calcEdad.js"
 export default (rutas) => {
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");

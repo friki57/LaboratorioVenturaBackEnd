@@ -168,7 +168,7 @@ export default (rutas) => {
                     let resultados = []
                     a.ExamenesRealizados.map(ex => {
                         ex.Resultados.map(rest => {
-                            resultados.push({ id: rest.Id_Campo, val: rest.Valor })
+                            resultados.push({ id: rest.Id_Campo, val: rest.Valor, examen: ex.Nombre, cat: ex.Categoria })
                             // console.log(rest.Id_Campo, rest.Valor)
                         })
                     })
@@ -183,6 +183,8 @@ export default (rutas) => {
                             if (re) {
                                 // console.log(ex._id, ex.Nombre)
                                 ex.Resultado = re.val
+                                ex.Nombre = re.examen
+                                ex.Categoria = re.cat
                                 ex.valRef = valRef(ex.ValorReferencia, ex.Resultado)
                                 if (ex.valRef == 0) ex.dentroRango = ex.Resultado
                                 else ex.fueraRango = ex.Resultado

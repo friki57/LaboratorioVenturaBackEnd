@@ -20,6 +20,6 @@ export function reporteLaboratorio(datos, callback)
         type: "nodebuffer",
         compression: "DEFLATE",
     });
-    fs.writeFileSync(path.resolve("./src/Utils/output.docx"), buf);
+    fs.writeFileSync(path.resolve("./src/Utils/ReporteLaboratorio.docx"), buf);
     callback()
 }

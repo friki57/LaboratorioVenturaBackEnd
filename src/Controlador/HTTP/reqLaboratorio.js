@@ -163,6 +163,7 @@ export default (rutas) => {
                             }).flat(1).filter(fi=>fi!=null)
                         })
                     // console.log(Categorias, ExamenCategorizado)
+
                     a.ExamenCategorizado = ExamenCategorizado;
 
                     let resultados = []
@@ -201,7 +202,7 @@ export default (rutas) => {
                         return {nombre: cat, examenes: a.ExamenCategorizado[i]}
                     })
                     delete a.ExamenCategorizado;
-                    let examene = [...new Set(a.ExamenesRealizados.map(ex => {return {Nombre: ex.Nombre, Categoria: ex.Categoria}}))]
+                    let examene = [...new Set(a.ExamenesRealizados.map(ex => {return {Nombre: ex.Nombre, Categoria: ex.Categoria, Campos: ex.Campos.map(cam=>cam._id)}}))]
                     let catp = [...new Set(a.ExamenesRealizados.map(ex => ex.Categoria))]
                     let examf = catp.map(cat=>
                         {

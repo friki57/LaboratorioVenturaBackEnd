@@ -172,9 +172,10 @@ export default (rutas) => {
                             console.log(rest.Id_Campo, rest.Valor)
                         })
                     })
-                    console.log(resultados)
+                    // console.log(resultados)
                     a.ExamenCategorizado = a.ExamenCategorizado.map(cat => {
                         return cat.map(ex => {
+                            ex=ex._doc
                             let re = resultados.find(r => r.id == ex._id)
                             if (re) {
                                 console.log(ex._id, ex.Nombre)

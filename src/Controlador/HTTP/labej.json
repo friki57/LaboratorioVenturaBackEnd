@@ -1,0 +1,267 @@
+{
+    "_id": "63ca00926038c9c35cad4eca",
+    "IdPaciente": "63c42df9b2f2d4974351ed99",
+    "Fecha": "19-1-2023",
+    "ExamenesRealizados": [
+        {
+            "_id": "63c9fe086038c9c35cad4dfa",
+            "Nombre": "HEMOGRAMA",
+            "Categoria": "Hematología",
+            "Metodo": "",
+            "Campos": [
+                {
+                    "Nombre": "Eritrocitos",
+                    "ValorReferencia": "4.500.000 - 5.600.000",
+                    "Concentracion": "/mm`3",
+                    "SubCategoria": "SERIE ROJA",
+                    "_id": "63c9fe086038c9c35cad4dfb"
+                },
+                {
+                    "Nombre": "Hemoglobina",
+                    "ValorReferencia": "13 - 18",
+                    "Concentracion": "g/dl",
+                    "SubCategoria": "SERIE ROJA",
+                    "_id": "63c9fe086038c9c35cad4dfc"
+                },
+                {
+                    "Nombre": "Hematocrito",
+                    "ValorReferencia": "40 - 52",
+                    "Concentracion": "%",
+                    "SubCategoria": "SERIE ROJA",
+                    "_id": "63c9fe086038c9c35cad4dfd"
+                },
+                {
+                    "Nombre": "Plaquetas",
+                    "ValorReferencia": "150.000 - 450.000",
+                    "Concentracion": "/mm`3",
+                    "SubCategoria": "SERIE ROJA",
+                    "_id": "63c9fe086038c9c35cad4dfe"
+                },
+                {
+                    "Nombre": "Leucocitos",
+                    "ValorReferencia": "4.500 - 10.000",
+                    "Concentracion": "/mm`3",
+                    "SubCategoria": "SERIE BLANCA",
+                    "_id": "63c9fe086038c9c35cad4dff"
+                },
+                {
+                    "Nombre": "Cayados",
+                    "ValorReferencia": "0 - 3",
+                    "Concentracion": "%",
+                    "SubCategoria": "FORMULA LEUCOCITARIA",
+                    "_id": "63c9fe086038c9c35cad4e00"
+                },
+                {
+                    "Nombre": "Segmentados",
+                    "ValorReferencia": "50 - 65",
+                    "Concentracion": "%",
+                    "SubCategoria": "FORMULA LEUCOCITARIA",
+                    "_id": "63c9fe086038c9c35cad4e01"
+                },
+                {
+                    "Nombre": "Linfocitos",
+                    "ValorReferencia": "25 - 40",
+                    "Concentracion": "%",
+                    "SubCategoria": "FORMULA LEUCOCITARIA",
+                    "_id": "63c9fe086038c9c35cad4e02"
+                },
+                {
+                    "Nombre": "Monocitos",
+                    "ValorReferencia": "2 - 8",
+                    "Concentracion": "%",
+                    "SubCategoria": "FORMULA LEUCOCITARIA",
+                    "_id": "63c9fe086038c9c35cad4e03"
+                },
+                {
+                    "Nombre": "Eosinófilos",
+                    "ValorReferencia": "1 - 4",
+                    "Concentracion": "%",
+                    "SubCategoria": "FORMULA LEUCOCITARIA",
+                    "_id": "63c9fe086038c9c35cad4e04"
+                },
+                {
+                    "Nombre": "Basófilos",
+                    "ValorReferencia": "0 - 1",
+                    "Concentracion": "%",
+                    "SubCategoria": "FORMULA LEUCOCITARIA",
+                    "_id": "63c9fe086038c9c35cad4e05"
+                }
+            ],
+            "__v": 0,
+            "Resultados": [
+                {
+                    "Valor": "5.457.000",
+                    "Id_Campo": "63c9fe086038c9c35cad4dfb",
+                    "_id": "63ca01f195b3b4e3040f8c3c"
+                },
+                {
+                    "Valor": "16.2",
+                    "Id_Campo": "63c9fe086038c9c35cad4dfc",
+                    "_id": "63ca01f195b3b4e3040f8c3d"
+                },
+                {
+                    "Valor": "51",
+                    "Id_Campo": "63c9fe086038c9c35cad4dfd",
+                    "_id": "63ca01f195b3b4e3040f8c3e"
+                },
+                {
+                    "Valor": "304.000",
+                    "Id_Campo": "63c9fe086038c9c35cad4dfe",
+                    "_id": "63ca01f195b3b4e3040f8c3f"
+                },
+                {
+                    "Valor": "5.400",
+                    "Id_Campo": "63c9fe086038c9c35cad4dff",
+                    "_id": "63ca01f195b3b4e3040f8c40"
+                },
+                {
+                    "Valor": "62",
+                    "Id_Campo": "63c9fe086038c9c35cad4e01",
+                    "_id": "63ca01f195b3b4e3040f8c41"
+                },
+                {
+                    "Valor": "31",
+                    "Id_Campo": "63c9fe086038c9c35cad4e02",
+                    "_id": "63ca01f195b3b4e3040f8c42"
+                },
+                {
+                    "Valor": "7",
+                    "Id_Campo": "63c9fe086038c9c35cad4e03",
+                    "_id": "63ca01f195b3b4e3040f8c43"
+                }
+            ]
+        },
+        {
+            "_id": "63ca00096038c9c35cad4e92",
+            "Nombre": "HEPATITIS B",
+            "Categoria": "Serologia",
+            "Campos": [
+                {
+                    "Nombre": "Hepatitis B",
+                    "ValorReferencia": "NEGATIVO - POSITIVO",
+                    "Concentracion": "",
+                    "SubCategoria": "",
+                    "_id": "63ca00096038c9c35cad4e93"
+                }
+            ],
+            "__v": 0,
+            "Resultados": [
+                {
+                    "Valor": "NEGATIVO",
+                    "Id_Campo": "63ca00096038c9c35cad4e93",
+                    "_id": "63ca020295b3b4e3040f8d40"
+                }
+            ]
+        }
+    ],
+    "__v": 0,
+    "Paciente": {
+        "_id": "63c42df9b2f2d4974351ed99",
+        "CI": "6848234",
+        "Nombres": "Erick Rodrigo",
+        "PrimerApellido": "Aranibar",
+        "SegundoApellido": "Arias",
+        "Fecha_de_Nacimiento": "06/12/2000",
+        "NombreCompleto": "Erick Rodrigo Aranibar Arias"
+    },
+    "Categorias": [
+        "SERIE ROJA",
+        "SERIE BLANCA",
+        "FORMULA LEUCOCITARIA",
+        ""
+    ],
+    "ExamenCategorizado": [
+        [
+            {
+                "Nombre": "Eritrocitos",
+                "ValorReferencia": "4.500.000 - 5.600.000",
+                "Concentracion": "/mm`3",
+                "SubCategoria": "SERIE ROJA",
+                "_id": "63c9fe086038c9c35cad4dfb"
+            },
+            {
+                "Nombre": "Hemoglobina",
+                "ValorReferencia": "13 - 18",
+                "Concentracion": "g/dl",
+                "SubCategoria": "SERIE ROJA",
+                "_id": "63c9fe086038c9c35cad4dfc"
+            },
+            {
+                "Nombre": "Hematocrito",
+                "ValorReferencia": "40 - 52",
+                "Concentracion": "%",
+                "SubCategoria": "SERIE ROJA",
+                "_id": "63c9fe086038c9c35cad4dfd"
+            },
+            {
+                "Nombre": "Plaquetas",
+                "ValorReferencia": "150.000 - 450.000",
+                "Concentracion": "/mm`3",
+                "SubCategoria": "SERIE ROJA",
+                "_id": "63c9fe086038c9c35cad4dfe"
+            }
+        ],
+        [
+            {
+                "Nombre": "Leucocitos",
+                "ValorReferencia": "4.500 - 10.000",
+                "Concentracion": "/mm`3",
+                "SubCategoria": "SERIE BLANCA",
+                "_id": "63c9fe086038c9c35cad4dff"
+            }
+        ],
+        [
+            {
+                "Nombre": "Cayados",
+                "ValorReferencia": "0 - 3",
+                "Concentracion": "%",
+                "SubCategoria": "FORMULA LEUCOCITARIA",
+                "_id": "63c9fe086038c9c35cad4e00"
+            },
+            {
+                "Nombre": "Segmentados",
+                "ValorReferencia": "50 - 65",
+                "Concentracion": "%",
+                "SubCategoria": "FORMULA LEUCOCITARIA",
+                "_id": "63c9fe086038c9c35cad4e01"
+            },
+            {
+                "Nombre": "Linfocitos",
+                "ValorReferencia": "25 - 40",
+                "Concentracion": "%",
+                "SubCategoria": "FORMULA LEUCOCITARIA",
+                "_id": "63c9fe086038c9c35cad4e02"
+            },
+            {
+                "Nombre": "Monocitos",
+                "ValorReferencia": "2 - 8",
+                "Concentracion": "%",
+                "SubCategoria": "FORMULA LEUCOCITARIA",
+                "_id": "63c9fe086038c9c35cad4e03"
+            },
+            {
+                "Nombre": "Eosinófilos",
+                "ValorReferencia": "1 - 4",
+                "Concentracion": "%",
+                "SubCategoria": "FORMULA LEUCOCITARIA",
+                "_id": "63c9fe086038c9c35cad4e04"
+            },
+            {
+                "Nombre": "Basófilos",
+                "ValorReferencia": "0 - 1",
+                "Concentracion": "%",
+                "SubCategoria": "FORMULA LEUCOCITARIA",
+                "_id": "63c9fe086038c9c35cad4e05"
+            }
+        ],
+        [
+            {
+                "Nombre": "Hepatitis B",
+                "ValorReferencia": "NEGATIVO - POSITIVO",
+                "Concentracion": "",
+                "SubCategoria": "",
+                "_id": "63ca00096038c9c35cad4e93"
+            }
+        ]
+    ]
+}

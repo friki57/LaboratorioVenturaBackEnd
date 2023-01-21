@@ -3,6 +3,8 @@ import crudExamen from "../Cruds/crudExamen.js";
 import crudLaboratorio from "../Cruds/crudLaboratorio.js";
 import crudPaciente from "../Cruds/crudPaciente.js";
 
+import { valRef } from "../../Utils/valRef.js";
+
 export default (rutas) => {
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");
@@ -162,6 +164,36 @@ export default (rutas) => {
                         })
                     console.log(Categorias, ExamenCategorizado)
                     a.ExamenCategorizado = ExamenCategorizado;
+
+                    let resultados = []
+                    a.ExamenesRealizados.map(ex => {
+                        ex.Resultados.map(rest => {
+                            resultados.push({ id: rest.Id_Campo, val: rest.Valor })
+                            console.log(rest.Id_Campo, rest.Valor)
+                        })
+                    })
+                    console.log()
+                    a.ExamenCategorizado = a.ExamenCategorizado.map(cat => {
+                        return cat.map(ex => {
+                            let re = resultados.find(r => r.id == ex._id)
+                            if (re) {
+                                console.log(ex._id, ex.Nombre)
+                                ex.Resultado = re.val
+                                ex.valRef = valRef(ex.ValorReferencia, ex.Resultado)
+                                if (ex.valRef == 0) ex.dentroRango = ex.Resultado
+                                else ex.fueraRango = ex.Resultado
+                                if (ex.valRef == undefined) {
+                                    ex.dentroRango = ex.Resultado
+                                    delete ex.fueraRango
+                                }
+                            }
+                            else ex.Resultado = ""
+                            return ex
+                        })
+                    })
+                    a.NombreCompleto = a.Paciente.NombreCompleto
+                    console.log(a.ExamenCategorizado);
+
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })

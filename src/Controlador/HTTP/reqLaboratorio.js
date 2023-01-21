@@ -211,6 +211,32 @@ export default (rutas) => {
                                 Examenes: examene.filter(ex=>ex.Categoria==cat)
                             }
                         })
+                    examf = examf.map(cat => {
+                        cat.SubCategoria = []
+                        cat.Examenes.map(ex=>{
+                            ex.Campos.map(cam=>{
+                                let ncam = {}
+                                a.Categorias.map((sub,i)=>
+                                    {
+                                        if(!cat.SubCategoria.map(cs=>cs.Nombre).includes(sub.nombre))
+                                        {
+                                            cat.SubCategoria.push({
+                                                Nombre: sub.nombre,
+                                                Campos: []
+                                            })
+                                        }
+                                        let subexid = sub.examenes.map(subex=>subex._id)
+                                        if(subexid.includes(cam))
+                                        {
+                                            ncam = sub.examenes.find(subex=>subex._id==cam)
+                                            cat.SubCategoria[i].Campos.push(ncam)
+                                        }
+                                    })
+                            })
+                        })
+                        console.log(cat.SubCategoria)
+                        return cat;
+                    })
                     a.examf = examf
                     a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)

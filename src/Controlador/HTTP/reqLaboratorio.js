@@ -179,7 +179,7 @@ export default (rutas) => {
                             ex=ex._doc
                             ex.dentroRango = ""
                             ex.fueraRango = ""
-                            console.log(ex)
+                            // console.log(ex)
                             let re = resultados.find(r => r.id == ex._id)
                             if (re) {
                                 // console.log(ex._id, ex.Nombre)
@@ -238,9 +238,11 @@ export default (rutas) => {
                         // console.log(ex.SubCategoria)
                         return cat;
                     })
-                    a.examf = examf
+                    delete a.Categorias
+                    a.ExamenesFinal = examf
                     a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)
+                    console.log(a)
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");
                 })

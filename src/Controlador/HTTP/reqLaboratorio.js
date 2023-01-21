@@ -162,14 +162,14 @@ export default (rutas) => {
                                 if(encontrado) return cam;
                             }).flat(1).filter(fi=>fi!=null)
                         })
-                    console.log(Categorias, ExamenCategorizado)
+                    // console.log(Categorias, ExamenCategorizado)
                     a.ExamenCategorizado = ExamenCategorizado;
 
                     let resultados = []
                     a.ExamenesRealizados.map(ex => {
                         ex.Resultados.map(rest => {
                             resultados.push({ id: rest.Id_Campo, val: rest.Valor })
-                            console.log(rest.Id_Campo, rest.Valor)
+                            // console.log(rest.Id_Campo, rest.Valor)
                         })
                     })
                     // console.log(resultados)
@@ -178,9 +178,10 @@ export default (rutas) => {
                             ex=ex._doc
                             ex.dentroRango = "s"
                             ex.fueraRango = "s"
+                            console.log(ex)
                             let re = resultados.find(r => r.id == ex._id)
                             if (re) {
-                                console.log(ex._id, ex.Nombre)
+                                // console.log(ex._id, ex.Nombre)
                                 ex.Resultado = re.val
                                 ex.valRef = valRef(ex.ValorReferencia, ex.Resultado)
                                 if (ex.valRef == 0) ex.dentroRango = ex.Resultado

@@ -183,7 +183,7 @@ export default (rutas) => {
                             if (re) {
                                 // console.log(ex._id, ex.Nombre)
                                 ex.Resultado = re.val
-                                ex.Nombre = re.examen
+                                 ex.NombreExamen = re.examen
                                 ex.Categoria = re.cat
                                 ex.valRef = valRef(ex.ValorReferencia, ex.Resultado)
                                 if (ex.valRef == 0) ex.dentroRango = ex.Resultado

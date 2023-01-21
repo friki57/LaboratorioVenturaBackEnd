@@ -193,6 +193,7 @@ export default (rutas) => {
                         })
                     })
                     console.log(a.ExamenCategorizado);
+                    a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)
                     res.json(a)
                     console.log("******************** Fin Leer Uno Laboratorio ********************");

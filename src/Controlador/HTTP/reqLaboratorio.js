@@ -244,7 +244,7 @@ export default (rutas) => {
                         {
                             cat.Examenes = cat.Examenes.map(ex=>{
                                 delete ex.Campos;
-                                ex = ex.SubCategoria.filter(sub=>{
+                                ex.SubCategoria = ex.SubCategoria.filter(sub=>{
                                     if(sub.Campos.length>0)
                                         return sub;
                                 })

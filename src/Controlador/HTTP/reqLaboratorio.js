@@ -258,7 +258,7 @@ export default (rutas) => {
                     //console.log(a)
                     reporteLaboratorio(a, ()=>
                     {
-                        res.download("./output.docx")
+                        res.download("./src/Utils/ReporteLaboratorio.docx")
                         console.log("******************** Fin Leer Uno Laboratorio ********************");
                     })
                     //res.json(a)

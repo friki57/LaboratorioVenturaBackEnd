@@ -183,7 +183,7 @@ export default (rutas) => {
                             if (re) {
                                 // console.log(ex._id, ex.Nombre)
                                 ex.Resultado = re.val
-                                 ex.NombreExamen = re.examen
+                                ex.NombreExamen = re.examen
                                 ex.Categoria = re.cat
                                 ex.valRef = valRef(ex.ValorReferencia, ex.Resultado)
                                 if (ex.valRef == 0) ex.dentroRango = ex.Resultado
@@ -201,7 +201,16 @@ export default (rutas) => {
                         return {nombre: cat, examenes: a.ExamenCategorizado[i]}
                     })
                     delete a.ExamenCategorizado;
-                    console.log(a.ExamenCategorizado);
+                    let examenes = [...new Set(a.ExamenesRealizados.map(ex => {return {Nombre: ex.Nombre, Categoria: ex.Categoria}}))]
+                    let catp = [...new Set(a.ExamenesRealizados.map(ex => ex.Categoria))]
+                    let examf = catp.map(cat=>
+                        {
+                            return {
+                                Categoria: cat,
+                                Examenes: examenes.filter(ex=>ex.Categoria==cat)
+                            }
+                        })
+                    a.examf = examf
                     a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)
                     res.json(a)

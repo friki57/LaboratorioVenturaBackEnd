@@ -176,8 +176,8 @@ export default (rutas) => {
                     a.ExamenCategorizado = a.ExamenCategorizado.map(cat => {
                         return cat.map(ex => {
                             ex=ex._doc
-                            ex.dentroRango = ""
-                            ex.fueraRango = ""
+                            ex.dentroRango = "s"
+                            ex.fueraRango = "s"
                             let re = resultados.find(r => r.id == ex._id)
                             if (re) {
                                 console.log(ex._id, ex.Nombre)
@@ -187,10 +187,10 @@ export default (rutas) => {
                                 else ex.fueraRango = ex.Resultado
                                 if (ex.valRef == undefined) {
                                     ex.dentroRango = ex.Resultado
-                                    ex.fueraRango = ""
+                                    ex.fueraRango = "s"
                                 }
                             }
-                            else ex.Resultado = ""
+                            else ex.Resultado = "s"
                             return ex
                         })
                     })

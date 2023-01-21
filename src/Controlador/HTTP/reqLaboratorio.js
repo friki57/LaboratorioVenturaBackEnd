@@ -258,10 +258,10 @@ export default (rutas) => {
                     console.log(JSON.parse(JSON.stringify(a, null, 4)))
                     reporteLaboratorio(JSON.parse(JSON.stringify(a, null, 4)), ()=>
                     {
-                    //    res.download("./src/Utils/ReporteLaboratorio.docx")
+                       res.download("./src/Utils/ReporteLaboratorio.docx")
                         console.log("******************** Fin Leer Uno Laboratorio ********************");
                     })
-                    res.json(a)
+                    // res.json(a)
                 })
             })
         })

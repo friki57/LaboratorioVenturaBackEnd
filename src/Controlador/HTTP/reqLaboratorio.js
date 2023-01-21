@@ -195,6 +195,7 @@ export default (rutas) => {
                     a.Categorias = a.Categorias.map((cat,i)=>{
                         return {nombre: cat, examenes: a.ExamenCategorizado[i]}
                     })
+                    delete a.ExamenCategorizado;
                     console.log(a.ExamenCategorizado);
                     a.Paciente = a.Paciente._doc
                     a.Paciente.Edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento)

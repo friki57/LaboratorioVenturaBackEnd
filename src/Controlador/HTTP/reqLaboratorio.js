@@ -212,15 +212,15 @@ export default (rutas) => {
                             }
                         })
                     examf = examf.map(cat => {
-                        cat.SubCategoria = []
-                        cat.Examenes.map(ex=>{
+                        cat.Examenes = cat.Examenes.map(ex=>{
+                            ex.SubCategoria = []
                             ex.Campos.map(cam=>{
                                 let ncam = {}
                                 a.Categorias.map((sub,i)=>
                                     {
-                                        if(!cat.SubCategoria.map(cs=>cs.Nombre).includes(sub.nombre))
+                                        if(!ex.SubCategoria.map(cs=>cs.Nombre).includes(sub.nombre))
                                         {
-                                            cat.SubCategoria.push({
+                                            ex.SubCategoria.push({
                                                 Nombre: sub.nombre,
                                                 Campos: []
                                             })
@@ -229,12 +229,13 @@ export default (rutas) => {
                                         if(subexid.includes(cam))
                                         {
                                             ncam = sub.examenes.find(subex=>subex._id==cam)
-                                            cat.SubCategoria[i].Campos.push(ncam)
+                                            ex.SubCategoria[i].Campos.push(ncam)
                                         }
                                     })
                             })
+                            return ex;
                         })
-                        console.log(cat.SubCategoria)
+                        console.log(ex.SubCategoria)
                         return cat;
                     })
                     a.examf = examf

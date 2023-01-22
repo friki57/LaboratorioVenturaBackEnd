@@ -80,21 +80,21 @@ export default (rutas) => {
         crudLaboratorio.buscarUno(labo, (laboratorio)=>
         {
             laboratorio = laboratorio._doc;
-            // laboratorio.ExamenesRealizados = laboratorio.ExamenesRealizados._doc
             let ind = 0
             laboratorio.ExamenesRealizados.map((ex,i) => {
                 if(ex._id == exa) ind = i;
             })
             laboratorio.ExamenesRealizados[ind].Resultados = laboratorio.ExamenesRealizados[ind].Resultados.map(a => a._doc)
+            let Materia = req.body.materia;
+            delete req.body.materia;
             let arr = []
             Object.getOwnPropertyNames(req.body).map(campo => {
-                // laboratorio.ExamenesRealizados[ind].Resultados
-                arr
-                .push({
+                arr.push({
                     Id_Campo: campo,
                     Valor: req.body[campo]
                 })
             })
+            laboratorio.ExamenesRealizados[ind].Materia = Materia
             laboratorio.ExamenesRealizados[ind].Estado = "Realizado"
             laboratorio.ExamenesRealizados[ind].Resultados = arr;
             console.log("resultados: ", arr, laboratorio)

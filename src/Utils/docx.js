@@ -7,7 +7,7 @@ import path from "path"
 export function reporteLaboratorio(datos, callback)
 {
     const content = fs.readFileSync(
-        path.resolve("./src/Utils/Nombre.docx"),
+        path.resolve("./src/Utils/PlantillaReporteLaboratorio.docx"),
         "binary"
     );
     const zip = new PizZip(content);

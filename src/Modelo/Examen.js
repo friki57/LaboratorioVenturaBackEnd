@@ -15,6 +15,7 @@ const ExamenSchema = new Schema(
         Estado: Number,
         Categoria: String,
         Metodo: String,
+        Materia: String,
         Campos: [CamposSchema]
     }
 )

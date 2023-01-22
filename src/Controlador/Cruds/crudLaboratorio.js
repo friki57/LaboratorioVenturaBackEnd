@@ -29,7 +29,7 @@ function crud()
             })
     }
     this.modificar = (id, datosnuevos, callback) => {
-        Laboratorio.update({ "_id": id }, datosnuevos, (error, res) => {
+        Laboratorio.updateOne({ "_id": id }, datosnuevos, (error, res) => {
             if (!error) {
                 callback(res);
             }

@@ -47,6 +47,7 @@ export default (rutas) => {
             pacientes = pacientes.map(p=>
                 {
                     p.Edad = calcularEdad(p.Fecha_de_Nacimiento)
+                    return p;
                 })
             let filtro = req.body;
             let ret = filtrarPacientes(pacientes, filtro)

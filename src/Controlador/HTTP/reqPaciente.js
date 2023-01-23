@@ -20,6 +20,15 @@ export default (rutas) => {
             console.log("******************** Fin Leer Nombres Paciente ********************");
         })
     });
+    rutas.get("/paciente/leeruno/:id", async (req, res) => {
+        console.log("******************** Leer Uno Paciente ********************\n");
+        const { id } = req.params;
+        crudPaciente.buscarUno(id, (paciente)=>
+        {
+            res.json(paciente)
+            console.log("******************** Fin Leer Uno Paciente ********************");
+        })
+    });
     rutas.post("/paciente/agregar", async (req, res) => {
         console.log("******************** Agregar Paciente ********************\nLlega:\n", req.body);
         req.body.Password = await encriptarContra(req.body.Password);

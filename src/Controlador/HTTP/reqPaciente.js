@@ -1,4 +1,6 @@
+import { calcularEdad } from "../../Utils/calcEdad.js";
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
+import { filtrarPacientes } from "../../Utils/filtrar.js";
 import crudPaciente from "../Cruds/crudPaciente.js";
 
 export default (rutas) => {
@@ -36,5 +38,20 @@ export default (rutas) => {
             res.json({mensaje: "Paciente Eliminado con éxito"})
             console.log("******************** Fin Eliminar Paciente ********************");
         });
+    });
+    rutas.post("/paciente/buscar", async (req, res) => {
+        console.log("******************** Buscar Paciente ********************\n");
+        console.log("Llega: ", req.body)
+        crudPaciente.buscarNombres((pacientes) => {
+            pacientes = pacientes.map(p=>p._doc)
+            pacientes = pacientes.map(p=>
+                {
+                    p.Edad = calcularEdad(p.Fecha_de_Nacimiento)
+                })
+            let filtro = req.body;
+            ret = filtrarPacientes(ret, filtro)
+            res.json(ret)
+            console.log("******************** Fin Buscar Paciente ********************");
+        })
     });
 }

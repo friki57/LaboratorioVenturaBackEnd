@@ -49,7 +49,7 @@ export default (rutas) => {
                     p.Edad = calcularEdad(p.Fecha_de_Nacimiento)
                 })
             let filtro = req.body;
-            let ret = filtrarPacientes(ret, filtro)
+            let ret = filtrarPacientes(pacientes, filtro)
             res.json(ret)
             console.log("******************** Fin Buscar Paciente ********************");
         })

@@ -29,8 +29,8 @@ export default (rutas) => {
             console.log("******************** Fin Leer Uno Paciente ********************");
         })
     });
-    rutas.get("/paciente/modificar/:id", async (req, res) => {
-        console.log("******************** Modificar Paciente ********************\n");
+    rutas.post("/paciente/modificar/:id", async (req, res) => {
+        console.log("******************** Modificar Paciente ********************\nLlega:\n", req.body);
         const { id } = req.params;
         crudPaciente.modificar(id, req.body, ()=>
         {

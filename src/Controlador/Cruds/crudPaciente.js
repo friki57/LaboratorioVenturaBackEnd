@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Paciente from "../../Modelo/Paciente.js";
+import crudPacienteEliminado from "./crudPacienteEliminado.js";
 
 function crud()
 {
@@ -8,6 +9,12 @@ function crud()
         Paciente.find((err, pacientes)=>
         {
             if(!err) callback(pacientes)
+            else console.log(err)
+        });
+    }
+    this.buscarUno = (id, callback) => {
+        Paciente.findOne({ "_id": id }, (err, product) => {
+            if (!err) callback(product)
             else console.log(err)
         });
     }
@@ -36,7 +43,7 @@ function crud()
     }
     this.guardar = (paciente, callback)=>
     {
-        var objeto = new Paciente(paciente)
+        let objeto = new Paciente(paciente)
         objeto.save(paciente,(err)=>
             {
                 err && console.log(err)
@@ -44,16 +51,19 @@ function crud()
             })
     }
     this.eliminar = (id, callback) => {
-        Examen.deleteone({ "_id": id }, (error, res) => {
-            if (!error) {
-                callback(res);
-            }
-            else {
-                console.log("Error eliminando en la tabla: " + tabla + "-", error);
-            }
-        });
+        this.buscarUno(id, (objeto)=>{
+            crudPacienteEliminado.guardar(objeto, ()=>{
+                Paciente.deleteOne({ "_id": id }, (error, res) => {
+                    if (!error) {
+                        callback(res);
+                    }
+                    else {
+                        console.log("Error eliminando en la tabla: " + tabla + "-", error);
+                    }
+                });
+            })
+        })
     }
-
 }
 
 export default new crud();

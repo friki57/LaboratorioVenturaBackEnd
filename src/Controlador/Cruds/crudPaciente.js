@@ -50,6 +50,16 @@ function crud()
                 callback();
             })
     }
+    this.modificar = (id, datosnuevos, callback) => {
+        Paciente.updateOne({ "_id": id }, datosnuevos, (error, res) => {
+            if (!error) {
+                callback(res);
+            }
+            else {
+                console.log("Error modificando en la tabla: " + tabla + "-", error);
+            }
+        });
+    }
     this.eliminar = (id, callback) => {
         this.buscarUno(id, (objeto)=>{
             crudPacienteEliminado.guardar(objeto, ()=>{

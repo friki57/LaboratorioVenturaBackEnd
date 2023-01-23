@@ -29,6 +29,15 @@ export default (rutas) => {
             console.log("******************** Fin Leer Uno Paciente ********************");
         })
     });
+    rutas.get("/paciente/modificar/:id", async (req, res) => {
+        console.log("******************** Modificar Paciente ********************\n");
+        const { id } = req.params;
+        crudPaciente.modificar(id, req.body, ()=>
+        {
+            res.json({ mensaje: "Paciente Modificado con éxito" })
+            console.log("******************** Fin Modificar Paciente ********************");
+        })
+    });
     rutas.post("/paciente/agregar", async (req, res) => {
         console.log("******************** Agregar Paciente ********************\nLlega:\n", req.body);
         req.body.Password = await encriptarContra(req.body.Password);

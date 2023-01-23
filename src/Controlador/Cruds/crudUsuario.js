@@ -20,6 +20,16 @@ function crud()
                 callback();
             })
     }
+    this.eliminar = (id, callback) => {
+        Examen.deleteone({ "_id": id }, (error, res) => {
+            if (!error) {
+                callback(res);
+            }
+            else {
+                console.log("Error eliminando en la tabla: " + tabla + "-", error);
+            }
+        });
+    }
 }
 
 export default new crud();

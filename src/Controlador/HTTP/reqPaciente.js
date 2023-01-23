@@ -28,4 +28,13 @@ export default (rutas) => {
             console.log("******************** Fin Agregar Paciente ********************");
         })
     });
+    rutas.post("/paciente/eliminar", async (req, res) => {
+        console.log("******************** Eliminar Paciente ********************\nLlega:\n", req.body);
+        crudPaciente.eliminar(req.body.id, (r)=>
+        {
+            console.log(r)
+            res.json({mensaje: "Paciente Eliminado con éxito"})
+            console.log("******************** Fin Eliminar Paciente ********************");
+        });
+    });
 }

@@ -130,6 +130,22 @@ export default (rutas) => {
                     let ret = laboratorios.map(a => a._doc);
                     ret = ret.map(a => {
                         a.Paciente = pacientes.find(b => b._id == a.IdPaciente)
+                        if (a.Paciente == undefined) a.Paciente = {
+                            CodigoPaciente: "0000",
+                            CI: "0",
+                            Nombres: "Desconocido o eliminado",
+                            NombreCompleto: "Desconocido o eliminado",
+                            PrimerApellido: "",
+                            SegundoApellido: "",
+                            Fecha_de_Nacimiento: "01-01-2023",
+                            Genero: "",
+                            Telefono: 0,
+                            Direccion: "",
+                            RazonSocial: "",
+                            NIT: "",
+                            Email: "",
+                            Password: ""
+                        }
                         a.ExamenesRealizados = a.ExamenesRealizados.map(b => {
                             b = b._doc;
                             b.Examen = examenes.find(c => c._id == b.IdExamen)

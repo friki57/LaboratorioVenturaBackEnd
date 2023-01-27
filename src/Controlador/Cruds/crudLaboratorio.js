@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Laboratorio from "../../Modelo/Laboratorio.js";
+import crudLaboratorioEliminado from "./crudLaboratorioEliminado.js";
 
 function crud()
 {
@@ -39,14 +40,18 @@ function crud()
         });
     }
     this.eliminar = (id, callback) => {
-        Examen.deleteone({ "_id": id }, (error, res) => {
-            if (!error) {
-                callback(res);
-            }
-            else {
-                console.log("Error eliminando en la tabla: " + tabla + "-", error);
-            }
-        });
+        this.buscarUno(id, (objeto) => {
+            crudLaboratorioEliminado.guardar(objeto, () => {
+                Paciente.deleteOne({ "_id": id }, (error, res) => {
+                    if (!error) {
+                        callback(res);
+                    }
+                    else {
+                        console.log("Error eliminando en la tabla: " + tabla + "-", error);
+                    }
+                });
+            })
+        })
     }
 }
 

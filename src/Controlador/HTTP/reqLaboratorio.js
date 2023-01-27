@@ -7,6 +7,14 @@ import { valRef } from "../../Utils/valRef.js";
 import { calcularEdad } from "../../Utils/calcEdad.js"
 import { reporteLaboratorio } from "../../Utils/docx.js";
 export default (rutas) => {
+    rutas.post("/laboratorio/eliminar", async (req, res) => {
+        console.log("******************** Eliminar Laboratorio ********************\nLlega:\n", req.body);
+        crudLaboratorio.eliminar(req.body.id, (r) => {
+            console.log(r)
+            res.json({ mensaje: "Laboratorio Eliminado con éxito" })
+            console.log("******************** Fin Eliminar Laboratorio ********************");
+        });
+    });
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");
         crudPaciente.buscarNombres((pacientes)=>

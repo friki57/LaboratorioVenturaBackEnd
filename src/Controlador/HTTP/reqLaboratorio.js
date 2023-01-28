@@ -6,6 +6,8 @@ import crudPaciente from "../Cruds/crudPaciente.js";
 import { valRef } from "../../Utils/valRef.js";
 import { calcularEdad } from "../../Utils/calcEdad.js"
 import { reporteLaboratorio } from "../../Utils/docx.js";
+
+import { plantillaPaciente } from "../../Modelo/objetosModelo.js";
 export default (rutas) => {
     rutas.post("/laboratorio/eliminar", async (req, res) => {
         console.log("******************** Eliminar Laboratorio ********************\nLlega:\n", req.body);
@@ -14,6 +16,14 @@ export default (rutas) => {
             res.json({ mensaje: "Laboratorio Eliminado con éxito" })
             console.log("******************** Fin Eliminar Laboratorio ********************");
         });
+    });
+    rutas.get("/laboratorio/cant", async (req, res) => {
+        console.log("******************** Leer Cantidad Laboratorio ********************\n");
+        crudLaboratorio.buscarTodo((laboratorios) => {
+            let ret = laboratorios.map(a=>a._doc);
+            res.json({cant: ret.length})
+            console.log("******************** Fin Leer Cantidad Laboratorio ********************");
+        })
     });
     rutas.get("/laboratorio/leertodo", async (req, res) => {
         console.log("******************** Leer Todo Laboratorio ********************\n");
@@ -138,22 +148,32 @@ export default (rutas) => {
                     let ret = laboratorios.map(a => a._doc);
                     ret = ret.map(a => {
                         a.Paciente = pacientes.find(b => b._id == a.IdPaciente)
-                        if (a.Paciente == undefined) a.Paciente = {
-                            CodigoPaciente: "0000",
-                            CI: "0",
-                            Nombres: "Desconocido o eliminado",
-                            NombreCompleto: "Desconocido o eliminado",
-                            PrimerApellido: "",
-                            SegundoApellido: "",
-                            Fecha_de_Nacimiento: "01-01-2023",
-                            Genero: "",
-                            Telefono: 0,
-                            Direccion: "",
-                            RazonSocial: "",
-                            NIT: "",
-                            Email: "",
-                            Password: ""
-                        }
+                        if (a.Paciente == undefined) a.Paciente = plantillaPaciente
+                        a.ExamenesRealizados = a.ExamenesRealizados.map(b => {
+                            b = b._doc;
+                            b.Examen = examenes.find(c => c._id == b.IdExamen)
+                            return b;
+                        })
+                        return a;
+                    })
+                    let filtro = req.body;
+                    ret = filtrarLaboratorios(ret, filtro)
+                    res.json(ret)
+                    console.log("******************** Fin Buscar Laboratorio ********************");
+                })
+            })
+        })
+    });
+    rutas.post("/laboratorio/buscar", async (req, res) => {
+        console.log("******************** Buscar Laboratorio ********************\n");
+        console.log("Llega: ", req.body)
+        crudPaciente.buscarNombres((pacientes) => {
+            crudExamen.buscarTodo((examenes) => {
+                crudLaboratorio.buscarTodo((laboratorios) => {
+                    let ret = laboratorios.map(a => a._doc);
+                    ret = ret.map(a => {
+                        a.Paciente = pacientes.find(b => b._id == a.IdPaciente)
+                        if (a.Paciente == undefined) a.Paciente = plantillaPaciente
                         a.ExamenesRealizados = a.ExamenesRealizados.map(b => {
                             b = b._doc;
                             b.Examen = examenes.find(c => c._id == b.IdExamen)

@@ -25,3 +25,5 @@ app.listen(8080, ()=>
 {
     console.log("Servidor iniciado en el puerto 8080");
 })
+
+// console.log(valRef("1-23", 3))

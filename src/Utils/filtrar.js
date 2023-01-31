@@ -8,6 +8,7 @@ export function filtrarLaboratorios(datos, filtro)
 
 function filtrarLaboratorio(datos, filtros)
 {
+    console.log(datos, filtros)
     if (filtros.Estado != "" && filtros.Estado != "Todos") {
         datos = datos.filter(lab => {
             if (lab.Paciente._doc.NombreCompleto != undefined){

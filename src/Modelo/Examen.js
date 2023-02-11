@@ -24,7 +24,11 @@ const ExamenSchema = new Schema(
         Estado: Number,
         Categoria: String,
         Metodo: String,
-        Materia: String,
+        Recipiente: String,
+        Muestra: String,
+        Gastos: String,
+        Precio: String,
+        InformacionClinica: String,
         Campos: [CamposSchema]
     }
 )

@@ -1,10 +1,19 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
+const ValRefSchema = new Schema(
+    {
+        EdadMinima: String,
+        EdadMaxima: String,
+        Concentracion: String,
+        ValoresReferenciaHombre: String,
+        ValoresReferenciaMujer: String,
+    }
+)
 const CamposSchema = new Schema(
     {
         Nombre: String,
-        ValorReferencia: String,
+        ValorReferencia: [ValRefSchema],
         Concentracion: String,
         SubCategoria: String
     }

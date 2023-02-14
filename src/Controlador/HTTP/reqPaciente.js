@@ -12,6 +12,14 @@ export default (rutas) => {
             console.log("******************** Fin Leer Todo Paciente ********************");
         })
     });
+    rutas.get("/paciente/cant", async (req, res) => {
+        console.log("******************** Leer Cantidad Paciente ********************\n");
+        crudPaciente.buscarTodo((pacientes)=>
+        {
+            res.json({ cant: pacientes.length })
+            console.log("******************** Fin Leer Cantidad Paciente ********************");
+        })
+    });
     rutas.get("/paciente/leerNombres", async (req, res) => {
         console.log("******************** Leer Nombres Paciente ********************\n");
         crudPaciente.buscarNombres((pacientes)=>

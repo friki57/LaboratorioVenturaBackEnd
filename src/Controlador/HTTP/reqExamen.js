@@ -19,6 +19,13 @@ export default (rutas) => {
             console.log("******************** Fin Leer Uno Examen ********************");
         })
     });
+    rutas.get("/examen/cant", async (req, res) => {
+        console.log("******************** Leer Cantidad Examen ********************\n");
+        crudExamen.buscarTodo((examenes) => {
+            res.json({ cant: examenes.length })
+            console.log("******************** Fin Leer Cantidad Examen ********************");
+        })
+    });
     rutas.post("/examen/agregar", async (req, res) => {
         console.log("******************** Agregar Examen ********************\nLlega:\n", req.body);
         crudExamen.guardar(req.body,()=>

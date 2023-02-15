@@ -34,4 +34,12 @@ export default (rutas) => {
             console.log("******************** Fin Agregar Examen ********************");
         })
     });
+    rutas.post("/examen/modificar/:id", async (req, res) => {
+        console.log("******************** Modificar Examen ********************\nLlega:\n", req.body);
+        const { id } = req.params;
+        crudPaciente.modificar(id, req.body, () => {
+            res.json({ mensaje: "Examen Modificado con éxito" })
+            console.log("******************** Fin Modificar Examen ********************");
+        })
+    });
 }

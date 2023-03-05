@@ -42,6 +42,7 @@ export function selectValRef(vals, paciente){
             if(ran) return valRef;
         }
     )
+    if(selected==undefined) selected = vals[0]
     selected = selected._doc;
     selected.ValorReferencia = (paciente.Genero == "Masculino" ? selected.ValoresReferenciaHombre : selected.ValoresReferenciaMujer)
     console.log("Sled", selected)

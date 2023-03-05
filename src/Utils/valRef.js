@@ -29,3 +29,21 @@ export function guionNum(rang, n)
     if (n > max) return 1
     if (n >= min && n <= max) return 0
 }
+
+function enRango(min, max, val){
+    return val>=min && val<=max;
+}
+export function selectValRef(vals, paciente){
+    console.log(paciente)
+    let selected = vals.find(valRef=>
+        {
+            // console.log(valRef)
+            const ran = enRango(valRef.EdadMinima, valRef.EdadMaxima, paciente.edad)
+            if(ran) return valRef;
+        }
+    )
+    selected = selected._doc;
+    selected.ValorReferencia = (paciente.Genero == "Masculino" ? selected.ValoresReferenciaHombre : selected.ValoresReferenciaMujer)
+    console.log("Sled", selected)
+    return selected;    
+}

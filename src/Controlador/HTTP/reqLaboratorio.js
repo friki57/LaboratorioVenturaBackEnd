@@ -3,7 +3,7 @@ import crudExamen from "../Cruds/crudExamen.js";
 import crudLaboratorio from "../Cruds/crudLaboratorio.js";
 import crudPaciente from "../Cruds/crudPaciente.js";
 
-import { valRef } from "../../Utils/valRef.js";
+import { selectValRef, valRef } from "../../Utils/valRef.js";
 import { calcularEdad } from "../../Utils/calcEdad.js"
 import { reporteLaboratorio } from "../../Utils/docx.js";
 
@@ -73,11 +73,16 @@ export default (rutas) => {
             crudExamen.buscarTodo((examenes)=>
             {
                 crudLaboratorio.buscarUno(id, (laboratorio) => {
-                    let a = laboratorio._doc;
+                    let a = laboratorio?._doc;
                     a.Paciente = pacientes.find(b=>b._id == a.IdPaciente)
+                    a.Paciente = a.Paciente._doc;
+                    a.Paciente.edad = calcularEdad(a.Paciente.Fecha_de_Nacimiento);
                     a.ExamenesRealizados = a.ExamenesRealizados.map(b=>{
-                        b=b._doc;
-                        b.Examen = examenes.find(c=>c._id==b.IdExamen)
+                        b=b?._doc;
+                        b.Examen = examenes.find(c=>c._id==b.IdExamen)._doc
+                        const cams = b.Examen.Campos.map(cam => ({ ...cam._doc, ValorReferenciaSeleccionado: selectValRef(cam.ValorReferencia, a.Paciente) }));
+                        console.log(cams)
+                        b.Examen.Campos = cams;
                         return b;
                     })
                     res.json(a)
@@ -164,31 +169,31 @@ export default (rutas) => {
             })
         })
     });
-    rutas.post("/laboratorio/buscar", async (req, res) => {
-        console.log("******************** Buscar Laboratorio ********************\n");
-        console.log("Llega: ", req.body)
-        crudPaciente.buscarNombres((pacientes) => {
-            crudExamen.buscarTodo((examenes) => {
-                crudLaboratorio.buscarTodo((laboratorios) => {
-                    let ret = laboratorios.map(a => a._doc);
-                    ret = ret.map(a => {
-                        a.Paciente = pacientes.find(b => b._id == a.IdPaciente)
-                        if (a.Paciente == undefined) a.Paciente = plantillaPaciente
-                        a.ExamenesRealizados = a.ExamenesRealizados.map(b => {
-                            b = b._doc;
-                            b.Examen = examenes.find(c => c._id == b.IdExamen)
-                            return b;
-                        })
-                        return a;
-                    })
-                    let filtro = req.body;
-                    ret = filtrarLaboratorios(ret, filtro)
-                    res.json(ret)
-                    console.log("******************** Fin Buscar Laboratorio ********************");
-                })
-            })
-        })
-    });
+    // rutas.post("/laboratorio/buscar", async (req, res) => {
+    //     console.log("******************** Buscar Laboratorio ********************\n");
+    //     console.log("Llega: ", req.body)
+    //     crudPaciente.buscarNombres((pacientes) => {
+    //         crudExamen.buscarTodo((examenes) => {
+    //             crudLaboratorio.buscarTodo((laboratorios) => {
+    //                 let ret = laboratorios.map(a => a._doc);
+    //                 ret = ret.map(a => {
+    //                     a.Paciente = pacientes.find(b => b._id == a.IdPaciente)
+    //                     if (a.Paciente == undefined) a.Paciente = plantillaPaciente
+    //                     a.ExamenesRealizados = a.ExamenesRealizados.map(b => {
+    //                         b = b._doc;
+    //                         b.Examen = examenes.find(c => c._id == b.IdExamen)
+    //                         return b;
+    //                     })
+    //                     return a;
+    //                 })
+    //                 let filtro = req.body;
+    //                 ret = filtrarLaboratorios(ret, filtro)
+    //                 res.json(ret)
+    //                 console.log("******************** Fin Buscar Laboratorio ********************");
+    //             })
+    //         })
+    //     })
+    // });
     rutas.get("/laboratorio/reporte/:id", async (req, res) => {
         console.log("******************** Leer Uno Laboratorio ********************\n");
         const { id } = req.params;

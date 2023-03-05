@@ -24,6 +24,9 @@ export default (rutas) => {
         console.log("******************** Leer Nombres Paciente ********************\n");
         crudPaciente.buscarNombres((pacientes)=>
         {
+            pacientes = pacientes.map((pac)=>({
+                ...pac._doc, edad: calcularEdad(pac._doc.Fecha_de_Nacimiento)
+            }));
             res.json(pacientes)
             console.log("******************** Fin Leer Nombres Paciente ********************");
         })

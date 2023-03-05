@@ -73,6 +73,7 @@ export default (rutas) => {
             crudExamen.buscarTodo((examenes)=>
             {
                 crudLaboratorio.buscarUno(id, (laboratorio) => {
+                    console.log(laboratorio, id)
                     let a = laboratorio._doc;
                     a.Paciente = pacientes.find(b=>b._id == a.IdPaciente)
                     a.Paciente = a.Paciente._doc;

@@ -1,3 +1,4 @@
+import Laboratorio from "../../Modelo/Laboratorio.js";
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
 import crudExamen from "../Cruds/crudExamen.js";
 
@@ -40,6 +41,28 @@ export default (rutas) => {
         crudExamen.modificar(id, req.body, () => {
             res.json({ mensaje: "Examen Modificado con éxito" })
             console.log("******************** Fin Modificar Examen ********************");
+        })
+    });
+
+    rutas.post("/examen/verificarUso", async (req, res) => {
+        // console.log("******************** Eliminar Examen ********************\nLlega:\n", req.body);
+        const { id } = req.body;
+        crudExamen.verificarUso(id, (uso)=>{
+            res.json(uso);
+        })
+    });
+    rutas.post("/examen/eliminar", async (req, res) => {
+        console.log("******************** Eliminar Examen ********************\nLlega:\n", req.body);
+        const { id } = req.body;
+        crudExamen.verificarUso(id, (uso)=>{
+            if(uso.utilizado == 0){
+                crudExamen.eliminar(req.body.id, (r) => {
+                    console.log(r)
+                    res.json({ mensaje: "Examen Eliminado con éxito" })
+                    console.log("******************** Fin Eliminar Examen ********************");
+                });
+            }
+            else res.json(uso);
         })
     });
 }

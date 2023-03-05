@@ -46,5 +46,5 @@ export function selectValRef(vals, paciente){
     selected = selected._doc;
     selected.ValorReferencia = (paciente.Genero == "Masculino" ? selected.ValoresReferenciaHombre : selected.ValoresReferenciaMujer)
     console.log("Sled", selected)
-    return selected;    
+    return selected;
 }

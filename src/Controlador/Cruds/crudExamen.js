@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 import Examen from "../../Modelo/Examen.js";
 
+import crudLaboratorio from "../Cruds/crudLaboratorio.js";
+
+
 function crud()
 {
     this.buscarTodo = (callback)=>
@@ -47,6 +50,19 @@ function crud()
                 console.log("Error eliminando en la tabla: " + tabla + "-", error);
             }
         });
+    }
+    this.verificarUso = (id, callback) => {
+        crudLaboratorio.buscarTodo((laboratorios) => {
+            let utilizado = 0;
+            laboratorios.map(lab => lab.ExamenesRealizados.map(ex => {
+                if (ex.IdExamen == id) utilizado++;
+            }))
+            let mensaje = '';
+            if(utilizado>0) mensaje = "Este examen ha sido realizado en " + utilizado + " laboratorios";
+            else mensaje = "Este examen no ha sido utilizado en ningún laboratorio";
+            // console.log(utilizado);
+            callback({ utilizado, mensaje})
+        })
     }
 }
 

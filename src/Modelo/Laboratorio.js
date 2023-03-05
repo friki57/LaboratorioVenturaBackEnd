@@ -21,13 +21,14 @@ const LaboratorioSchema = new Schema(
         IdPaciente: String, //
         IdUsuario: String,
         Fecha: String, //
+        FechaDeEntrega: String, //
         Motivo: String, //
         IdDoctor: String,
         FormaPago: String,
         Costo: Number,
         Descuento: Number,
         Pagado: Number,
-        FechaRecoger: String,
+        // FechaRecoger: String,
         ExamenesRealizados: [ExamenesRealizadosSchema] //
     }
 )

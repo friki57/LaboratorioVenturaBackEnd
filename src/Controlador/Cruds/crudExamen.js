@@ -42,7 +42,7 @@ function crud()
         });
     }
     this.eliminar = (id, callback) => {
-        Examen.deleteone({ "_id": id }, (error, res) => {
+        Examen.deleteOne({ "_id": id }, (error, res) => {
             if (!error) {
                 callback(res);
             }

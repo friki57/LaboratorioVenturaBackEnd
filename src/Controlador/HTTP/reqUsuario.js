@@ -22,21 +22,22 @@ export default (rutas) => {
         })
     });
     rutas.get("/usuario/cant", async (req, res) => {
-        console.log("******************** Leer Cantidad Paciente ********************\n");
+        console.log("******************** Leer Cantidad Usuario ********************\n");
         crudUsuario.buscarTodo((usuarios) => {
             res.json({ cant: usuarios.length })
-            console.log("******************** Fin Leer Cantidad Paciente ********************");
+            console.log("******************** Fin Leer Cantidad Usuario ********************");
         })
     });
     rutas.get("/usuario/leerNombres", async (req, res) => {
-        console.log("******************** Leer Nombres Paciente ********************\n");
+        console.log("******************** Leer Nombres Usuario ********************\n");
         crudUsuario.buscarNombres((usuarios) => {
-            usuarios = usuarios.map((pac) => ({
-                ...pac._doc, edad: calcularEdad(pac._doc.Fecha_de_Nacimiento)
+            console.log(usuarios)
+            usuarios = usuarios.map((usu) => ({
+                ...usu._doc, edad: calcularEdad(usu._doc.Fecha_de_Nacimiento)
             }));
             res.json(usuarios)
-            console.log("******************** Fin Leer Nombres Paciente ********************");
-        })
+            console.log("******************** Fin Leer Nombres Usuario ********************");
+        });
     });
 /*     rutas.get("/", (req, res) => {
         crudProduct.buscarTodo(a => res.json(a))

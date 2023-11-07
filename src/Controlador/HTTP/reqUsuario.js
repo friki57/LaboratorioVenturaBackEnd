@@ -13,7 +13,8 @@ export default (rutas) => {
     rutas.post("/usuario/agregar", async (req, res) => {
         console.log("******************** Agregar Usuario ********************\nLlega:\n", req.body);
         req.body.Password = await encriptarContra(req.body.Password);
-        req.body.Password = await desencriptarContra(req.body.Password);
+        req.body.Activo = true;
+        // req.body.Password = await desencriptarContra(req.body.Password);
         crudUsuario.guardar(req.body,()=>
         {
             res.json({mensaje: "Usuario Registrado con éxito"})

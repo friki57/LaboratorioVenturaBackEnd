@@ -14,7 +14,8 @@ const UsuarioSchema = new Schema(
         Tipo: String,
         Cargo: String,
         Email: String,
-        Password: String
+        Password: String,
+        Activo: Boolean
     }
 )
 

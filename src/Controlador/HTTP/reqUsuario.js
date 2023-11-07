@@ -21,7 +21,23 @@ export default (rutas) => {
             console.log("******************** Fin Agregar Usuario ********************");
         })
     });
-    
+    rutas.get("/usuario/cant", async (req, res) => {
+        console.log("******************** Leer Cantidad Paciente ********************\n");
+        crudUsuario.buscarTodo((usuarios) => {
+            res.json({ cant: usuarios.length })
+            console.log("******************** Fin Leer Cantidad Paciente ********************");
+        })
+    });
+    rutas.get("/usuario/leerNombres", async (req, res) => {
+        console.log("******************** Leer Nombres Paciente ********************\n");
+        crudUsuario.buscarNombres((usuarios) => {
+            usuarios = usuarios.map((pac) => ({
+                ...pac._doc, edad: calcularEdad(pac._doc.Fecha_de_Nacimiento)
+            }));
+            res.json(usuarios)
+            console.log("******************** Fin Leer Nombres Paciente ********************");
+        })
+    });
 /*     rutas.get("/", (req, res) => {
         crudProduct.buscarTodo(a => res.json(a))
     });

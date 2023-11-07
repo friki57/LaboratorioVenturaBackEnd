@@ -1,6 +1,7 @@
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
 import crudUsuario from "../Cruds/crudUsuario.js";
-import crudPaciente from "../Cruds/crudPaciente.js";
+import { calcularEdad } from "../../Utils/calcEdad.js";
+
 
 export default (rutas) => {
     rutas.get("/usuario/leertodo", async (req, res) => {

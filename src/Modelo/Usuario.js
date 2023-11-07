@@ -15,7 +15,8 @@ const UsuarioSchema = new Schema(
         Cargo: String,
         Email: String,
         Password: String,
-        Activo: Boolean
+        Activo: Boolean,
+        Sucursal: String
     }
 )
 

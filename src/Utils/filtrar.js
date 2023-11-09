@@ -74,31 +74,31 @@ export function filtrarPacientes(datos, filtro) {
 }
 function filtrarPaciente(datos, filtros)
 {
-    if(filtros.Nombre != ""){
+    if(filtros.Nombre != "" && filtros.Nombre !== undefined){
         datos = datos.filter(pac => {
             if (pac.Nombres != undefined)
                 return pac.Nombres.substring(0, filtros.Nombre.length).toLowerCase() == (filtros.Nombre).toLowerCase()
         });
     }
-    if(filtros.PrimerApellido != ""){
+    if(filtros.PrimerApellido != "" && filtros.PrimerApellido !== undefined){
         datos = datos.filter(pac => {
             if (pac.PrimerApellido != undefined)
                 return pac.PrimerApellido.substring(0, filtros.PrimerApellido.length).toLowerCase() == (filtros.PrimerApellido).toLowerCase()
         });
     }
-    if(filtros.SegundoApellido != ""){
+    if(filtros.SegundoApellido != "" && filtros.SegundoApellido !== undefined){
         datos = datos.filter(pac => {
             if (pac.SegundoApellido != undefined)
                 return pac.SegundoApellido.substring(0, filtros.SegundoApellido.length).toLowerCase() == (filtros.SegundoApellido).toLowerCase()
         });
     }
-    if(filtros.CI != ""){
+    if(filtros.CI != "" && filtros.CI !== undefined){
         datos = datos.filter(pac => {
             if (pac.CI != undefined)
                 return pac.CI.substring(0, filtros.CI.length).toLowerCase() == (filtros.CI).toLowerCase();
         });
     }
-    if(filtros.CodigoPaciente != ""){
+    if(filtros.CodigoPaciente != "" && filtros.CodigoPaciente !== undefined){
         datos = datos.filter(lab => {
             if (lab.CodigoPaciente != undefined)
                 return lab.CodigoPaciente.substring(0, filtros.CodigoPaciente.length).toLowerCase() == (filtros.CodigoPaciente).toLowerCase();

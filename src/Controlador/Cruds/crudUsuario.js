@@ -51,6 +51,12 @@ function crud()
             else console.log(err)
         });
     }
+    this.buscarUno = (id, callback) => {
+        Usuario.findOne({ "_id": id }, (err, product) => {
+            if (!err) callback(product)
+            else console.log(err)
+        });
+    }
 }
 
 export default new crud();

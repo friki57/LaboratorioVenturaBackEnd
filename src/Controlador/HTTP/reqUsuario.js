@@ -41,6 +41,14 @@ export default (rutas) => {
             console.log("******************** Fin Leer Nombres Usuario ********************");
         });
     });
+    rutas.get("/usuario/leeruno/:id", async (req, res) => {
+        console.log("******************** Leer Uno Usuario ********************\n");
+        const { id } = req.params;
+        crudUsuario.buscarUno(id, (usuario) => {
+            res.json(usuario)
+            console.log("******************** Fin Leer Uno Usuario ********************");
+        })
+    });
 /*     rutas.get("/", (req, res) => {
         crudProduct.buscarTodo(a => res.json(a))
     });

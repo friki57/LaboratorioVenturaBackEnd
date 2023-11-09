@@ -1,7 +1,7 @@
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
 import crudUsuario from "../Cruds/crudUsuario.js";
 import { calcularEdad } from "../../Utils/calcEdad.js";
-
+import { filtrarPacientes } from "../../Utils/filtrar.js";
 
 export default (rutas) => {
     rutas.get("/usuario/leertodo", async (req, res) => {
@@ -64,6 +64,21 @@ export default (rutas) => {
             res.json({ mensaje: "Usuario Eliminado con éxito" })
             console.log("******************** Fin Eliminar Usuario ********************");
         });
+    });
+    rutas.post("/usuario/buscar", async (req, res) => {
+        console.log("******************** Buscar Usuario ********************\n");
+        console.log("Llega: ", req.body)
+        crudUsuario.buscarNombres((usuarios) => {
+            usuarios = usuarios.map(p => p._doc)
+            usuarios = usuarios.map(p => {
+                p.Edad = calcularEdad(p.Fecha_de_Nacimiento)
+                return p;
+            })
+            let filtro = req.body;
+            let ret = filtrarPacientes(usuarios, filtro)
+            res.json(ret)
+            console.log("******************** Fin Buscar Usuario ********************");
+        })
     });
 /*     rutas.get("/", (req, res) => {
         crudProduct.buscarTodo(a => res.json(a))

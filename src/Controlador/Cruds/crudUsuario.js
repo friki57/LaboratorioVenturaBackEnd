@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Usuario from "../../Modelo/Usuario.js";
+import crudUsuarioEliminado from "./crudUsuarioEliminado.js";
 
 function crud()
 {
@@ -19,16 +20,6 @@ function crud()
                 err && console.log(err)
                 callback();
             })
-    }
-    this.eliminar = (id, callback) => {
-        Usuario.deleteone({ "_id": id }, (error, res) => {
-            if (!error) {
-                callback(res);
-            }
-            else {
-                console.log("Error eliminando en la tabla: " + tabla + "-", error);
-            }
-        });
     }
     this.buscarNombres = (callback) => {
         Usuario.find((err, usuarios) => {
@@ -56,6 +47,30 @@ function crud()
             if (!err) callback(product)
             else console.log(err)
         });
+    }
+    this.modificar = (id, datosnuevos, callback) => {
+        Usuario.updateOne({ "_id": id }, datosnuevos, (error, res) => {
+            if (!error) {
+                callback(res);
+            }
+            else {
+                console.log("Error modificando en la tabla: " + tabla + "-", error);
+            }
+        });
+    }
+    this.eliminar = (id, callback) => {
+        this.buscarUno(id, (objeto) => {
+            crudUsuarioEliminado.guardar(objeto, () => {
+                Usuario.deleteOne({ "_id": id }, (error, res) => {
+                    if (!error) {
+                        callback(res);
+                    }
+                    else {
+                        console.log("Error eliminando en la tabla: " + tabla + "-", error);
+                    }
+                });
+            })
+        })
     }
 }
 

@@ -49,6 +49,22 @@ export default (rutas) => {
             console.log("******************** Fin Leer Uno Usuario ********************");
         })
     });
+    rutas.post("/usuario/modificar/:id", async (req, res) => {
+        console.log("******************** Modificar Usuario ********************\nLlega:\n", req.body);
+        const { id } = req.params;
+        crudUsuario.modificar(id, req.body, () => {
+            res.json({ mensaje: "Usuario Modificado con éxito" })
+            console.log("******************** Fin Modificar Usuario ********************");
+        })
+    });
+    rutas.post("/usuario/eliminar", async (req, res) => {
+        console.log("******************** Eliminar Usuario ********************\nLlega:\n", req.body);
+        crudUsuario.eliminar(req.body.id, (r) => {
+            console.log(r)
+            res.json({ mensaje: "Usuario Eliminado con éxito" })
+            console.log("******************** Fin Eliminar Usuario ********************");
+        });
+    });
 /*     rutas.get("/", (req, res) => {
         crudProduct.buscarTodo(a => res.json(a))
     });

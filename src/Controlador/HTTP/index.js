@@ -4,6 +4,7 @@ import reqPaciente from "./reqPaciente.js";
 import reqExamen from "./reqExamen.js";
 import reqLaboratorio from "./reqLaboratorio.js";
 import reqProducto from "./reqProducto.js";
+import reqInventario from "./reqInventario.js";
 export default () => {
     const rutas = express.Router();
     reqUsuario(rutas);
@@ -11,6 +12,7 @@ export default () => {
     reqExamen(rutas);
     reqLaboratorio(rutas);
     reqProducto(rutas);
+    reqInventario(rutas);
     return rutas;
 }
 

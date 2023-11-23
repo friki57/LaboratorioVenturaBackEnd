@@ -128,7 +128,7 @@ export default (rutas) => {
             let Materia = req.body.materia;
             delete req.body.materia;
             let arr = []
-            Object.getOwnPropertyNames(req.body).map(campo => {
+            Object.getOwnPropertyNames(req.body).forEach(campo => {
                 arr.push({
                     Id_Campo: campo,
                     Valor: req.body[campo]

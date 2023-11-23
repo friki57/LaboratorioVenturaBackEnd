@@ -12,7 +12,8 @@ export default (rutas) => {
         })
     });
     rutas.post("/inventario/agregar", async (req, res) => {
-        console.log("******************** Agregar Inventario ********************\nLlega:\n", req.body);
+        const Fecha = (new Date()).toString();
+        console.log("******************** Agregar Inventario ********************\nLlega:\n", {...req.body, Fecha});
         crudInventario.guardar(req.body,()=>
         {
             res.json({mensaje: "Inventario Registrado con éxito"})
@@ -25,17 +26,6 @@ export default (rutas) => {
             res.json({ cant: inventarios.length })
             console.log("******************** Fin Leer Cantidad Inventario ********************");
         })
-    });
-    rutas.get("/inventario/leerNombres", async (req, res) => {
-        console.log("******************** Leer Nombres Inventario ********************\n");
-        crudInventario.buscarNombres((inventarios) => {
-            console.log(inventarios)
-            inventarios = inventarios.map((usu) => ({
-                ...usu._doc, edad: calcularEdad(usu._doc.Fecha_de_Nacimiento)
-            }));
-            res.json(inventarios)
-            console.log("******************** Fin Leer Nombres Inventario ********************");
-        });
     });
     rutas.get("/inventario/leeruno/:id", async (req, res) => {
         console.log("******************** Leer Uno Inventario ********************\n");

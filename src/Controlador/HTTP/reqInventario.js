@@ -13,7 +13,8 @@ export default (rutas) => {
     });
     rutas.post("/inventario/agregar", async (req, res) => {
         const Fecha = (new Date()).toString();
-        console.log("******************** Agregar Inventario ********************\nLlega:\n", {...req.body, Fecha});
+        req.body = { ...req.body, Fecha };
+        console.log("******************** Agregar Inventario ********************\nLlega:\n", req.body);
         crudInventario.guardar(req.body,()=>
         {
             res.json({mensaje: "Inventario Registrado con éxito"})

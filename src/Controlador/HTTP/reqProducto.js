@@ -55,6 +55,7 @@ export default (rutas) => {
         console.log("******************** Buscar Producto ********************\n");
         console.log("Llega: ", req.body)
         crudProducto.buscarTodo((productos) => {
+            productos = productos.filter(p => p)
             productos = productos.map(p => p._doc)
             let filtro = req.body;
             let ret = filtrarProductos(productos, filtro)

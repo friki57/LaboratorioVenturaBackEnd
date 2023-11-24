@@ -27,17 +27,6 @@ export default (rutas) => {
             console.log("******************** Fin Leer Cantidad Producto ********************");
         })
     });
-    rutas.get("/producto/leerNombres", async (req, res) => {
-        console.log("******************** Leer Nombres Producto ********************\n");
-        crudProducto.buscarNombres((productos) => {
-            console.log(productos)
-            productos = productos.map((usu) => ({
-                ...usu._doc, edad: calcularEdad(usu._doc.Fecha_de_Nacimiento)
-            }));
-            res.json(productos)
-            console.log("******************** Fin Leer Nombres Producto ********************");
-        });
-    });
     rutas.get("/producto/leeruno/:id", async (req, res) => {
         console.log("******************** Leer Uno Producto ********************\n");
         const { id } = req.params;
@@ -65,12 +54,8 @@ export default (rutas) => {
     rutas.post("/producto/buscar", async (req, res) => {
         console.log("******************** Buscar Producto ********************\n");
         console.log("Llega: ", req.body)
-        crudProducto.buscarNombres((productos) => {
+        crudProducto.buscarTodo((productos) => {
             productos = productos.map(p => p._doc)
-            productos = productos.map(p => {
-                p.Edad = calcularEdad(p.Fecha_de_Nacimiento)
-                return p;
-            })
             let filtro = req.body;
             let ret = filtrarPacientes(productos, filtro)
             res.json(ret)

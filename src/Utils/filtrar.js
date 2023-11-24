@@ -1,3 +1,62 @@
+export function filtrarProductos(datos, filtro)
+{
+    datos = datos.map(lab=>({...lab, Paciente: lab.Paciente._doc? lab.Paciente._doc: lab.Paciente}))
+    datos = ordenarProducto(datos, filtro.ord)
+    datos = filtrarProducto(datos, filtro);
+    // console.log(datos)
+    return datos;
+}
+
+function filtrarProducto(datos, filtros)
+{
+    console.log(datos, filtros)
+    if(filtros.Nombre != ""){
+        datos = datos.filter(prod => {
+            if (prod.Nombre != undefined)
+                return prod.Nombre.substring(0, filtros.Nombre.length).toLowerCase() == (filtros.Nombre).toLowerCase()
+        });
+    }
+    if(filtros.Codigo != ""){
+        datos = datos.filter(prod => {
+            if (prod.Codigo != undefined)
+                return prod.Codigo.substring(0, filtros.Codigo.length).toLowerCase() == (filtros.Codigo).toLowerCase();
+        });
+    }
+    return datos;
+}
+function ordenarProducto(datos, ord)
+{
+    switch(ord)
+    {
+        case "Codigo Ascendente":
+            {
+                datos = datos.sort((a, b) => a.Codigo - b.Codigo);
+                break;
+            }
+        case "Codigo Descendente":
+            {        
+                datos = datos.sort((a, b) => b.Codigo - a.Codigo);
+                break;
+            }
+        case "Nombre Ascendente":
+            {
+                datos = datos.sort((a, b) => a.Nombre - b.Nombre);
+                break;
+            }
+        case "Nombre Descendente":
+            {        
+                datos = datos.sort((a, b) => b.Nombre - a.Nombre);
+                break;
+            }
+        case "Mas recientes":
+            {
+                datos = datos.reverse()
+                break;
+            }
+    }
+    return datos;
+}
+
 export function filtrarLaboratorios(datos, filtro)
 {
     datos = datos.map(lab=>({...lab, Paciente: lab.Paciente._doc? lab.Paciente._doc: lab.Paciente}))

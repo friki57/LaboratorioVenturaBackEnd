@@ -13,13 +13,15 @@ function filtrarProducto(datos, filtros)
     if(filtros.Nombre != ""){
         datos = datos.filter(prod => {
             if (prod.Nombre != undefined)
-                return prod.Nombre.substring(0, filtros.Nombre.length).toLowerCase() == (filtros.Nombre).toLowerCase()
+                return prod.Nombre.substring(0, filtros.Nombre.length).toLowerCase() === (filtros.Nombre).toLowerCase()
         });
     }
     if(filtros.Codigo != ""){
         datos = datos.filter(prod => {
-            if (prod.Codigo != undefined)
-                return prod.Codigo.substring(0, filtros.Codigo.length).toLowerCase() == (filtros.Codigo).toLowerCase();
+            if (prod.Codigo != undefined) {
+                console.log(prod.Codigo.substring(0, filtros.Codigo.length).toLowerCase() === (filtros.Codigo).toLowerCase(), prod.Codigo.substring(0, filtros.Codigo.length).toLowerCase(), (filtros.Codigo).toLowerCase())
+                return prod.Codigo.substring(0, filtros.Codigo.length).toLowerCase() === (filtros.Codigo).toLowerCase();
+            }
         });
     }
     return datos;

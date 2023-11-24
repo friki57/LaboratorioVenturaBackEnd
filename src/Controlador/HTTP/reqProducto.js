@@ -1,7 +1,7 @@
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
 import crudProducto from "../Cruds/crudProducto.js";
 import { calcularEdad } from "../../Utils/calcEdad.js";
-import { filtrarPacientes } from "../../Utils/filtrar.js";
+import { filtrarPacientes, filtrarProductos } from "../../Utils/filtrar.js";
 
 export default (rutas) => {
     rutas.get("/producto/leertodo", async (req, res) => {
@@ -57,7 +57,7 @@ export default (rutas) => {
         crudProducto.buscarTodo((productos) => {
             productos = productos.map(p => p._doc)
             let filtro = req.body;
-            let ret = filtrarPacientes(productos, filtro)
+            let ret = filtrarProductos(productos, filtro)
             // console.log("productos:", productos, "filtro:", filtro, "filtrado:", ret)
             res.json(ret)
             console.log("******************** Fin Buscar Producto ********************");

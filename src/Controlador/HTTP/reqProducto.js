@@ -58,6 +58,7 @@ export default (rutas) => {
             productos = productos.map(p => p._doc)
             let filtro = req.body;
             let ret = filtrarPacientes(productos, filtro)
+            console.log("productos:", productos, "filtro:", filtro, "filtrado:", ret)
             res.json(ret)
             console.log("******************** Fin Buscar Producto ********************");
         })

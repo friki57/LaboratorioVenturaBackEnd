@@ -1,6 +1,5 @@
 export function filtrarProductos(datos, filtro)
 {
-    datos = datos.map(lab=>({...lab, Paciente: lab.Paciente._doc? lab.Paciente._doc: lab.Paciente}))
     datos = ordenarProducto(datos, filtro.ord)
     datos = filtrarProducto(datos, filtro);
     // console.log(datos)

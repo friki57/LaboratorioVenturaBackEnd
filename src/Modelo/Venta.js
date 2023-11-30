@@ -23,7 +23,7 @@ const VentaSchema = new Schema(
         Descuento_Ganancia: Number,
         Cliente: String,
         Producto: [ProductoSchema],
-        Facturacion: [FacturacionSchema],
+        Facturacion: FacturacionSchema,
     }
 )
 

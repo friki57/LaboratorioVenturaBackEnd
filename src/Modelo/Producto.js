@@ -18,6 +18,8 @@ const ProductoSchema = new Schema(
         Proveedor: String,
         GrupoFamilia: String,
         SubGrupo: String,
+        NombreGenerico: String,
+        RegistroSanitario: String,
     }
 )
 

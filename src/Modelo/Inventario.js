@@ -15,6 +15,8 @@ const InventarioSchema = new Schema(
         Fecha: String,
         MontoTotal: Number,
         Proveedor: String,
+        TipoMovimiento: String,
+        Motivo: String,
         Detalle: [ProductoSchema],
     }
 )

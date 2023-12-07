@@ -6,6 +6,7 @@ import reqLaboratorio from "./reqLaboratorio.js";
 import reqProducto from "./reqProducto.js";
 import reqInventario from "./reqInventario.js";
 import reqVenta from "./reqVenta.js";
+import reqProveedor from "./reqProveedor.js";
 export default () => {
     const rutas = express.Router();
     reqUsuario(rutas);
@@ -14,6 +15,7 @@ export default () => {
     reqLaboratorio(rutas);
     reqProducto(rutas);
     reqInventario(rutas);
+    reqProveedor(rutas);
     reqVenta(rutas);
     return rutas;
 }

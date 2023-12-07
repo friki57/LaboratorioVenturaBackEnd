@@ -7,6 +7,8 @@ import reqProducto from "./reqProducto.js";
 import reqInventario from "./reqInventario.js";
 import reqVenta from "./reqVenta.js";
 import reqProveedor from "./reqProveedor.js";
+import reqGrupo from "./reqGrupo.js";
+import reqSubgrupo from "./reqSubgrupo.js";
 export default () => {
     const rutas = express.Router();
     reqUsuario(rutas);
@@ -15,6 +17,8 @@ export default () => {
     reqLaboratorio(rutas);
     reqProducto(rutas);
     reqInventario(rutas);
+    reqGrupo(rutas);
+    reqSubgrupo(rutas);
     reqProveedor(rutas);
     reqVenta(rutas);
     return rutas;

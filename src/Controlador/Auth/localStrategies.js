@@ -5,6 +5,7 @@ import crudUsuario from '../Cruds/crudUsuario.js';
 
 export default function configurePassport(passport) {
     passport.serializeUser((user, done) => {
+        console.log("serializando", user)
         done(null, user._id);
     });
 
@@ -34,8 +35,8 @@ export default function configurePassport(passport) {
                 console.log('contra:', contra, usuario?.Password);
                 const resp = contra === usuario?.Password;
                 if (resp) {
-                    console.log(usuario)
                     req.session.usuario = usuario;
+                    req.session.save();
                     console.log('session', req.session)
                     return done(null, usuario, null);
                 } else {

@@ -11,28 +11,29 @@ const app = express();
 import cors from "cors";
 app.use(cors());
 
-import localStategies from './Controlador/Auth/localStrategies.js';
-
-localStategies(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+import localStategies from './Controlador/Auth/localStrategies.js';
+localStategies(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(session({
     name: 'example.sid',
     secret: 'Replace with your secret key',
     httpOnly: true,
     secure: false,
-    maxAge: 1000 * 60 * 10,
+    maxAge: 1000 * 60,
     resave: false,
     saveUninitialized: true,
     store: MongoDBStore.create({
-        mongoUrl: 'mongodb://0.0.0.0:27017/LaboratorioVentura'
+        mongoUrl: 'mongodb://0.0.0.0:27017/LaboratorioVentura',
+        ttl: 60 * 5,
     })
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 mongoose.set('strictQuery', true);
 mongoose.connect("mongodb://0.0.0.0:27017/LaboratorioVentura", {}, (err, res) => {

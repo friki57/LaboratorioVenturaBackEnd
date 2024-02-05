@@ -35,7 +35,7 @@ export default function configurePassport(passport) {
                 const resp = contra === usuario?.Password;
                 if (resp) {
                     console.log(usuario)
-                    // req.session.usuario = usuario;
+                    req.session.usuario = usuario;
                     return done(null, usuario, null);
                 } else {
                     return done(null, false, null);

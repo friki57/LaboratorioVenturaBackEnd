@@ -8,7 +8,7 @@ export default (rutas) => {
     rutas.post("/login", passport.authenticate("iniciar sesion",
         {
             //successRedirect: '/Usuarios/Cuenta',
-            failureRedirect: http.get.rutaCuenta.inicioSesion,
+            failureRedirect: '/',
             failureFlash: true
         }), (req, res) => {
             console.log(req.user, res.user);

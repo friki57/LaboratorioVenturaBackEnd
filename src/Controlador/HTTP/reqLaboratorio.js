@@ -21,6 +21,9 @@ export default (rutas) => {
         console.log("******************** Leer Cantidad Laboratorio ********************\n");
         crudLaboratorio.buscarTodo((laboratorios) => {
             let ret = laboratorios.map(a=>a._doc);
+            if (req.isAuthenticated()) {
+                console.log("session", req.session, req.user)
+            }
             console.log("session", req.session, req.user)
             res.json({ cant: ret.length, user: req.session.usuario, cos: 'a' })
             console.log("******************** Fin Leer Cantidad Laboratorio ********************");

@@ -6,14 +6,15 @@ import crudUsuario from '../Cruds/crudUsuario.js';
 export default function configurePassport(passport) {
     passport.serializeUser((user, done) => {
         console.log("serializando", user)
-        done(null, user._id);
+        done(null, user._doc._id);
     });
 
     passport.deserializeUser((id, done) => {
+        console.log('desserializando', id);
         crudUsuario.buscarUno(id, (usuario) => {
-            console.log('desserializando', usuario);
-            if (usuario?.length > 0) {
-                done(null, usuario[0]);
+            console.log('desserializando usuario', usuario);
+            if (usuario) {
+                done(null, usuario);
             } else {
                 done(null, false);
                 console.log("no hay este usuario");

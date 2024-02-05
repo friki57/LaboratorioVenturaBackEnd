@@ -5,7 +5,7 @@ import crudUsuario from '../Cruds/crudUsuario.js';
 
 export default function configurePassport(passport) {
     passport.serializeUser((user, done) => {
-        done(null, user.key);
+        done(null, user._id);
     });
 
     passport.deserializeUser((id, done) => {

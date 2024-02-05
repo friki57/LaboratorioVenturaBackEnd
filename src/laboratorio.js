@@ -15,11 +15,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-import localStategies from './Controlador/Auth/localStrategies.js';
-localStategies(passport);
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(session({
     name: 'example.sid',
     secret: 'Replace with your secret key',
@@ -33,6 +28,11 @@ app.use(session({
         ttl: 60 * 5,
     })
 }));
+import localStategies from './Controlador/Auth/localStrategies.js';
+localStategies(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 mongoose.set('strictQuery', true);

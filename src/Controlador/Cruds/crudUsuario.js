@@ -16,7 +16,7 @@ function crud()
     {
         Usuario.find((err, users)=>
         {
-            const user = users.find(us=>us.Email === correo);
+            const user = users.find(us=>us._doc.Email === correo);
             if(!err) callback(user)
             else console.log(err)
         });

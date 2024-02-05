@@ -9,6 +9,7 @@ import reqVenta from "./reqVenta.js";
 import reqProveedor from "./reqProveedor.js";
 import reqGrupo from "./reqGrupo.js";
 import reqSubgrupo from "./reqSubgrupo.js";
+import reqLogin from "./reqLogin.js";
 export default () => {
     const rutas = express.Router();
     reqUsuario(rutas);
@@ -17,10 +18,11 @@ export default () => {
     reqLaboratorio(rutas);
     reqProducto(rutas);
     reqInventario(rutas);
-    reqGrupo(rutas);
+    reqGrupo(rutas); 
     reqSubgrupo(rutas);
     reqProveedor(rutas);
     reqVenta(rutas);
+    reqLogin(rutas);
     return rutas;
 }
 

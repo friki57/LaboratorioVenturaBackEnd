@@ -26,7 +26,7 @@ export default function configurePassport(passport) {
         passReqToCallback: true
     }, (req, correo, contra, done) => {
         crudUsuario.buscarPorCorreo(correo, (usuario) => {
-            if (usuario.length <= 0) {
+            if (usuario?.length <= 0) {
                 return done(null, false, null);
             } else {
                 console.log('contra:', contra, usuario.Password);

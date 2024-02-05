@@ -11,7 +11,7 @@ export default function configurePassport(passport) {
     passport.deserializeUser((id, done) => {
         crudUsuario.buscarUno(id, (usuario) => {
             console.log('desserializando', usuario);
-            if (usuario.length > 0) {
+            if (usuario?.length > 0) {
                 done(null, usuario[0]);
             } else {
                 done(null, false);

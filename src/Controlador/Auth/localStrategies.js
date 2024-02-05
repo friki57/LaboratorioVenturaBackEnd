@@ -25,7 +25,9 @@ export default function configurePassport(passport) {
         passwordField: 'Password',
         passReqToCallback: true
     }, (req, correo, contra, done) => {
+        console.log("iniciar sesion", correo, contra);
         crudUsuario.buscarPorCorreo(correo, (usuario) => {
+            console.log("usuario", usuario);
             if (usuario?.length <= 0) {
                 return done(null, false, null);
             } else {

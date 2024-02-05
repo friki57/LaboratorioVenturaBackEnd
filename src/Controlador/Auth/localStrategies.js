@@ -28,7 +28,7 @@ export default function configurePassport(passport) {
         console.log("iniciar sesion", correo, contra);
         crudUsuario.buscarPorCorreo(correo, (usuario) => {
             console.log("usuario", usuario);
-            if (usuario?.length <= 0) {
+            if (!usuario) {
                 return done(null, false, null);
             } else {
                 console.log('contra:', contra, usuario?.Password);

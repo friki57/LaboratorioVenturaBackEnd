@@ -2,11 +2,15 @@ import {valRef} from "./Utils/valRef.js";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import passport from "passport";
+import localStategies from './Controlador/Auth/localStrategies.js';
 
 const app = express();
 
 import cors from "cors";
 app.use(cors())
+
+localStategies(passport);
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());

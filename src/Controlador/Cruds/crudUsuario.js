@@ -12,6 +12,15 @@ function crud()
             else console.log(err)
         });
     }
+    this.buscarPorCorreo = (correo, callback)=>
+    {
+        Usuario.find((err, users)=>
+        {
+            const user = users.find(us=>us.Email === correo);
+            if(!err) callback(user)
+            else console.log(err)
+        });
+    }
     this.guardar = (product, callback)=>
     {
         var objeto = new Usuario(product)

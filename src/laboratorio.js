@@ -16,11 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(session({
-    name: 'example.sid',
-    secret: 'Replace with your secret key',
-    httpOnly: true,
+    secret: 'laboratorio',
     secure: false,
-    maxAge: 1000 * 60,
     resave: false,
     saveUninitialized: true,
     store: MongoDBStore.create({

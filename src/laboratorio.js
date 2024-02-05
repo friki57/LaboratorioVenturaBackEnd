@@ -22,7 +22,7 @@ app.use(session({
     name: 'example.sid',
     secret: 'Replace with your secret key',
     httpOnly: true,
-    secure: true,
+    secure: false,
     maxAge: 1000 * 60 * 10,
     resave: false,
     saveUninitialized: true,

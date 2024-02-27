@@ -22,4 +22,8 @@ export default (rutas) => {
             }
         });
     });
+    rutas.post('/getUser', (req, res) => {
+        const user = req.user;
+        res.json(user);
+    });
 }

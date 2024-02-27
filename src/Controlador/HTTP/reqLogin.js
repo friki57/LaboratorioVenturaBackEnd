@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 export default (rutas) => {
     rutas.post('/login', (req, res) => {
         const { correo, contra } = req.body;
-        console.log("iniciar sesion", correo, contra);
+        console.log("iniciar sesion", req.body, correo, contra);
         crudUsuario.buscarPorCorreo(correo, (usuario) => {
             console.log("usuario", usuario);
             if (!usuario) {

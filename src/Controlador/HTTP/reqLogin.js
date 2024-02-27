@@ -1,27 +1,25 @@
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
 import crudUsuario from "../Cruds/crudUsuario.js";
-import { calcularEdad } from "../../Utils/calcEdad.js";
-import { filtrarPacientes } from "../../Utils/filtrar.js";
-import passport from 'passport';
+import jwt from 'jsonwebtoken';
 
 export default (rutas) => {
-    rutas.post("/login", passport.authenticate("iniciar sesion",
-        {
-            //successRedirect: '/Usuarios/Cuenta',
-            failureRedirect: '/',
-            failureFlash: true
-        }), (req, res) => {
-            console.log(req.user, res.user);
-            res.json(req.user);
-        }
-    );
-    rutas.post('/logout', async (req, res, next) => {
-        try {
-            await req.session.destroy();
-        } catch (err) {
-            console.error('Error logging out:', err);
-            return next(new Error('Error logging out'));
-        }
-        res.status(200).send();
-    })
+    rutas.post('/login', (req, res) => {
+        const { correo, contra } = req.body;
+        console.log("iniciar sesion", correo, contra);
+        crudUsuario.buscarPorCorreo(correo, (usuario) => {
+            console.log("usuario", usuario);
+            if (!usuario) {
+                return done(null, false, null);
+            } else {
+                console.log('contra:', contra, usuario?.Password);
+                const resp = contra === usuario?.Password;
+                if (resp) {
+                    const token = jwt.sign({ id: usuario._id, usuario }, 'laboratorio', { expiresIn: '1h' });
+                    res.json({ token });
+                } else {
+                    res.status(401).json({ message: 'Credenciales incorrectas' });
+                }
+            }
+        });
+    });
 }

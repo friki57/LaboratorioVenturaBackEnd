@@ -23,7 +23,7 @@ export default (rutas) => {
             }
         });
     });
-    rutas.post('/getUser', (req, res) => {
+    rutas.post('/getUser', auth.authenticateJWT, (req, res) => {
         const user = req.user;
         res.json(user);
     });

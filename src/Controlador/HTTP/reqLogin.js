@@ -15,7 +15,7 @@ export default (rutas) => {
                 console.log('Password:', Password, usuario?.Password);
                 const resp = Password === usuario?.Password;
                 if (resp) {
-                    const token = jwt.sign({ id: usuario._id, usuario }, 'laboratorio', { expiresIn: '1h' });
+                    const token = jwt.sign({ id: usuario._id, usuario }, 'laboratorio', { expiresIn: '1m' });
                     res.json({ token });
                 } else {
                     res.status(401).json({ message: 'Credenciales incorrectas' });

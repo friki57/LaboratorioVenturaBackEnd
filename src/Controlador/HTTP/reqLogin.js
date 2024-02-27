@@ -9,7 +9,7 @@ export default (rutas) => {
         crudUsuario.buscarPorCorreo(correo, (usuario) => {
             console.log("usuario", usuario);
             if (!usuario) {
-                return done(null, false, null);
+                res.status(404).json({ message: 'El correo no está registrado' });
             } else {
                 console.log('contra:', contra, usuario?.Password);
                 const resp = contra === usuario?.Password;

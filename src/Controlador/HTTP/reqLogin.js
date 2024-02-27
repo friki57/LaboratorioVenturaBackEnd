@@ -4,15 +4,15 @@ import jwt from 'jsonwebtoken';
 
 export default (rutas) => {
     rutas.post('/login', (req, res) => {
-        const { correo, contra } = req.body;
-        console.log("iniciar sesion", req.body, correo, contra);
-        crudUsuario.buscarPorCorreo(correo, (usuario) => {
+        const { Email, Password } = req.body;
+        console.log("iniciar sesion", req.body, Email, Password);
+        crudUsuario.buscarPorCorreo(Email, (usuario) => {
             console.log("usuario", usuario);
             if (!usuario) {
-                res.status(404).json({ message: 'El correo no está registrado' });
+                res.status(404).json({ message: 'El Email no está registrado' });
             } else {
-                console.log('contra:', contra, usuario?.Password);
-                const resp = contra === usuario?.Password;
+                console.log('Password:', Password, usuario?.Password);
+                const resp = Password === usuario?.Password;
                 if (resp) {
                     const token = jwt.sign({ id: usuario._id, usuario }, 'laboratorio', { expiresIn: '1h' });
                     res.json({ token });

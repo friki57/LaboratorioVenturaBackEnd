@@ -1,7 +1,7 @@
 import { encriptarContra, desencriptarContra } from "../../Utils/encriptacion.js";
 import crudUsuario from "../Cruds/crudUsuario.js";
 import jwt from 'jsonwebtoken';
-import authenticateJWT from '../Auth/jwt';
+import auth from '../Auth/jwt.js'
 
 export default (rutas) => {
     rutas.post('/login', (req, res) => {
@@ -23,7 +23,7 @@ export default (rutas) => {
             }
         });
     });
-    rutas.post('/getUser', authenticateJWT, (req, res) => {
+    rutas.post('/getUser', (req, res) => {
         const user = req.user;
         res.json(user);
     });

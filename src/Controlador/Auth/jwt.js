@@ -1,6 +1,6 @@
 import passport from "passport";
 import passportJWT from 'passport-jwt';
-import crudUsuario from '../Cruds/crudUsuario';
+import crudUsuario from '../Cruds/crudUsuario.js';
 
 const { Strategy: JWTStrategy, ExtractJwt } = passportJWT;
 
@@ -37,7 +37,7 @@ const authenticateAdmin = (req, res, next) => {
     })(req, res, next);
 };
 
-module.exports = {
+export default {
     authenticateJWT,
     authenticateAdmin,
 };

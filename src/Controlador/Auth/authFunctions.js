@@ -1,53 +1,43 @@
-module.exports = new obj();
-function obj() {
-    var http = require('./../Rutas/index.js');
-    this.verificar = (req, res, next) => {
-        if (req.isAuthenticated()) {
-            if (req.app.locals.usuario.hash == 1) {
-                console.log(req.app.locals.usuario)
-                return next();
-            }
-            else {
-                res.redirect(http.get.rutaCuenta.verificarCuenta);
-            }
+import passport from "passport";
+import passportJWT from 'passport-jwt';
+import crudUsuario from '../Cruds/crudUsuario';
+
+const { Strategy: JWTStrategy, ExtractJwt } = passportJWT;
+
+passport.use(new JWTStrategy({
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: 'laboratorio',
+}, (payload, done) => {
+    crudUsuario.buscarUno(payload.id, (user) => {
+        if (user) {
+            return done(null, user);
+        } else {
+            return done(null, false);
         }
-        else {
-            req.flash("error", "Primero es necesario iniciar sesion");
-            res.redirect(http.get.rutaCuenta.inicioSesion);
+    });
+}));
+
+const authenticateJWT = passport.authenticate('jwt', { session: false });
+
+const authenticateAdmin = (req, res, next) => {
+    passport.authenticate('jwt', { session: false }, (err, user) => {
+        if (err) {
+            return res.status(401).json({ message: 'Token inválido' });
         }
-    }
-    this.nada = (req, res, next) => {
-        return next();
-    }
-    this.verificarOperador = (req, res, next) => {
-        if (req.isAuthenticated()) {
-            if (req.user.tipo == 'Cajero' || req.user.tipo == 'Administrador') {
-                return next();
-            }
-            else {
-                req.flash("error", "Es necesario iniciar sesion como Cajero o Administrador");
-                res.redirect('back');
-            }
+        if (!user) {
+            return res.status(401).json({ message: 'Token no proporcionado' });
         }
-        else {
-            //  console.log("enlace actual:",req.url);
-            req.flash("error", "Primero es necesario iniciar sesion");
-            res.redirect('back');
+
+        if (user.role !== 'admin') {
+            return res.status(403).json({ message: 'No tienes permisos de administrador para acceder a esta ruta' });
         }
-    }
-    this.verificarAdmin = (req, res, next) => {
-        if (req.isAuthenticated()) {
-            if (req.user.tipo == 'Administrador') {
-                return next();
-            }
-            else {
-                req.flash("error", "Es necesario iniciar sesion como Administrador");
-                res.redirect('back');
-            }
-        }
-        else {
-            req.flash("error", "Primero es necesario iniciar sesion");
-            res.redirect('back');
-        }
-    }
-}
+
+        req.user = user;
+        next();
+    })(req, res, next);
+};
+
+export default {
+    authenticateJWT,
+    authenticateAdmin,
+};

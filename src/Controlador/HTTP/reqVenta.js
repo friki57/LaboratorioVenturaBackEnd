@@ -55,14 +55,10 @@ export default (rutas) => {
     rutas.post("/venta/buscar", async (req, res) => {
         console.log("******************** Buscar Venta ********************\n");
         console.log("Llega: ", req.body)
-        crudVenta.buscarNombres((ventas) => {
-            ventas = ventas.map(p => p._doc)
-            ventas = ventas.map(p => {
-                p.Edad = calcularEdad(p.Fecha_de_Nacimiento)
-                return p;
-            })
+        crudVenta.buscarTodo((ventas)=> {
+        // crudVenta.buscarNombres((ventas) => {
             let filtro = req.body;
-            let ret = filtrarPacientes(ventas, filtro)
+            // let ret = filtrarPacientes(ventas, filtro)
             res.json(ret)
             console.log("******************** Fin Buscar Venta ********************");
         })

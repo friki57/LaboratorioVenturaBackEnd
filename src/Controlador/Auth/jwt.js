@@ -9,6 +9,7 @@ passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: 'laboratorio',
 }, (payload, done) => {
+    console.log('payload', payload)
     crudUsuario.buscarUno(payload.id, (user) => {
         if (user) {
             return done(null, user);

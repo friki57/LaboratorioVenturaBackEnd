@@ -53,6 +53,7 @@ function crud()
         });
     }
     this.buscarUno = (id, callback) => {
+        console.log('buscar uno usuario', id)
         Usuario.findOne({ "_id": id }, (err, product) => {
             if (!err) callback(product)
             else console.log(err)

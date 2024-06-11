@@ -25,8 +25,11 @@ const authenticateJWT = (req, res, next) => {
         if (err) {
             return res.status(401).json({ message: 'Token inválido' });
         }
-        if (!user) {
+        if (!token) {
             return res.status(401).json({ message: 'Token no proporcionado' });
+        }
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
         }
         jwt.verify(token, 'laboratorio', (err, decoded) => {
             if (err && err.name === 'TokenExpiredError') {
@@ -42,13 +45,16 @@ const authenticateJWT = (req, res, next) => {
 
 const authenticateAdmin = (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user) => {
+        const token = req.headers.authorization.split(' ')[1];
         if (err) {
             return res.status(401).json({ message: 'Token inválido' });
         }
-        if (!user) {
+        if (!token) {
             return res.status(401).json({ message: 'Token no proporcionado' });
         }
-        const token = req.headers.authorization.split(' ')[1];
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
         jwt.verify(token, 'laboratorio', (err, decoded) => {
             if (err && err.name === 'TokenExpiredError') {
                 return res.status(401).json({ message: 'Token expirado' });

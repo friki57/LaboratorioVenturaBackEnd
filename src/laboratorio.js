@@ -20,11 +20,11 @@ mongoose.connect("mongodb://0.0.0.0:27017/LaboratorioVentura", {}, (err, res) =>
 });
 
 import rutas from './Controlador/HTTP/index.js';
-// app.use((req, res, next) => {
-//     console.log(`Nombre de la petición: ${req.method} ${req.url}`);
-//     console.log('Cuerpo de la petición:', req.body);
-//     next();
-// });
+app.use((req, res, next) => {
+    console.log(`Nombre de la petición: ${req.method} ${req.url}`);
+    console.log('Cuerpo de la petición:', req.body);
+    next();
+});
 app.use(rutas());
 app.listen(8080, () => {
     console.log("Servidor iniciado en el puerto 8080");

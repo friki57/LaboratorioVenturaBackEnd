@@ -20,6 +20,7 @@ passport.use(new JWTStrategy({
 
 const authenticateJWT = (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user) => {
+        console.log(user)
         if (err) {
             return res.status(401).json({ message: 'Token inválido' });
         }

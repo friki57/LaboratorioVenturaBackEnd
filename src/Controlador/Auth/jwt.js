@@ -20,14 +20,14 @@ passport.use(new JWTStrategy({
 
 const authenticateJWT = (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user) => {
-        console.log(user)
+        const token = req.headers.authorization.split(' ')[1];
+        console.log(user, token)
         if (err) {
             return res.status(401).json({ message: 'Token inválido' });
         }
         if (!user) {
             return res.status(401).json({ message: 'Token no proporcionado' });
         }
-        const token = req.headers.authorization.split(' ')[1];
         jwt.verify(token, 'laboratorio', (err, decoded) => {
             if (err && err.name === 'TokenExpiredError') {
                 return res.status(401).json({ message: 'Token expirado' });

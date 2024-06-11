@@ -25,6 +25,7 @@ export default (rutas) => {
     });
     rutas.get('/getUser', auth.authenticateJWT, (req, res) => {
         const user = req.user;
+        console.log('/getUser', user);
         res.json(user);
     });
 }

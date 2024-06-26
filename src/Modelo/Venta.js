@@ -14,6 +14,7 @@ const FacturacionSchema = new Schema(
         RazonSocial: String,
         NIT: String,
         Email: String,
+        FormaDePago: String,
     }
 )
 const VentaSchema = new Schema(
